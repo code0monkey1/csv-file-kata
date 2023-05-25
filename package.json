@@ -4,7 +4,7 @@
   "description": "### So , what is Test Driven Development ?",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watchAll --runInBand --verbose"
   },
   "repository": {
     "type": "git",

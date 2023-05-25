@@ -1,12 +1,8 @@
 # tdd-fundamentals-in-typescript
 
-### So , what is Test Driven Development ? 
+### The objective of this TDD Kata :
 
-![TDD](pictures/tdd.jpg 'test driven development')
-
----
-
-[TDD Exercise Book](./data/TDD-Fundamentals-in-TypeScript.pdf)
+![TDD](pictures/csv-kata.png 'CSV solid kata')
 
 ---
 
