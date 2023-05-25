@@ -4,35 +4,32 @@ import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case"
 
 describe('Customer CSV File writer',()=>{
 
+  describe("one customer",()=>{
+        test.each([
     
-   test('does exist',()=>{
-
-          expect(CustomerCsvFileWriter).toBeInstanceOf(Function)
-   })
-
-   test.each([
-
-    {customer:new Customer("Chiranjeev","007"),expected:"Chiranjeev,007"},
-    {customer:new Customer("Chinu","001"),expected:"Chinu,001"}
-
-])("For $customer the result should be $expected",({customer,expected})=>{
-       
-    //Arrange
-
-       const mockFileWriter:FileWriter={
-           writeLine:jest.fn()
-       }
-
-       const sut = new CustomerCsvFileWriter(mockFileWriter);
+        {customer:new Customer("Chiranjeev","007"),expected:"Chiranjeev,007"},
+        {customer:new Customer("Chinu","001"),expected:"Chinu,001"}
     
-    //Act
-         sut.execute('customers.csv',[customer])
+    ])("For $customer the result should be $expected",({customer,expected})=>{
+            
+        //Arrange
+    
+            const mockFileWriter:FileWriter={
+                writeLine:jest.fn()
+            }
+    
+            const sut = new CustomerCsvFileWriter(mockFileWriter);
+        
+        //Act
+              sut.execute('customers.csv',[customer])
+    
+        //Assert
+            expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(1)
+            expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",expected)
+    
+        })
 
-    //Assert
-        expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(1)
-        expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",expected)
-
-   })
+  })
 
 
 })
