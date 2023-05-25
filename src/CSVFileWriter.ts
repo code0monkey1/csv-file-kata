@@ -1,31 +1,28 @@
 class CSVFileWriter {
    
-    private fs:FileSystem|null = null;
+    private fw:FileWriter|null = null;
     
     public writerCustomers(fileName:string,customers:Customer[]){
 
 
     }
 
-
 }
 
 
 class Customer{
 
-  private name:string=''
-  private contactNumber:string=''
-
-  // constructor(private readonly  name, private readonly  contactNumber){}
+  constructor(private readonly  name:string, private readonly  contactNumber:string){}
 
   public toString(){
     
-     return this.name+this.contactNumber
+     return this.name+" "+this.contactNumber
 
   }
+  
 }
 
-interface FileSystem{
+interface FileWriter{
     
   writeLine:(fileName:string,line:string)=>void
 
