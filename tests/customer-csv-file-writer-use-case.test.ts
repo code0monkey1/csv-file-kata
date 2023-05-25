@@ -22,12 +22,12 @@ describe('Customer CSV File writer',()=>{
        const sut = new CustomerCsvFileWriter(mockFileWriter);
     
     //Act
-         sut.execute('',[customer])
+         sut.execute('customers.csv',[customer])
 
          
     //Assert
         expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(1)
-        expect(mockFileWriter.writeLine).toHaveBeenCalledWith("",customer)
+        expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",customer.name)
 
    })
 
