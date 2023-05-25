@@ -32,4 +32,42 @@ describe('Customer CSV File writer',()=>{
   })
 
 
+    describe("two customers",()=>{
+        test.each([
+    
+        {
+        customers:[new Customer("Chiranjeev","007"), 
+                     new Customer("Chinu","001")],
+        expected:"Chiranjeev,007,Chinu,001"
+        },
+        //  {
+        // customers:[new Customer("Chiranjeev","007"), 
+        //              new Customer("Chinu","001")],
+        // expected:"Chiranjeev,007,Chinu,001"
+        // }
+        
+    
+    ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customers,expected})=>{
+            
+        //Arrange
+    
+            const mockFileWriter:FileWriter={
+                writeLine:jest.fn()
+            }
+    
+            const sut = new CustomerCsvFileWriter(mockFileWriter);
+        
+        //Act
+              sut.execute('customers.csv',customers)
+    
+        //Assert
+            expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
+            expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",expected)
+    
+        })
+
+  })
+
+
+
 })
