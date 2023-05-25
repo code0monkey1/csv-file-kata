@@ -11,7 +11,7 @@ class CustomerCsvFileWriter{
            customers
                   .forEach(customer=> 
                                 this.fileWriter
-                                .writeLine(fileName,text+=","+customer.toString() ))
+                                .writeLine(fileName,customer.toString() ))
        }
        
 

@@ -38,13 +38,13 @@ describe('Customer CSV File writer',()=>{
         {
         customers:[new Customer("Chiranjeev","007"), 
                      new Customer("Chinu","001")],
-        expected:"Chiranjeev,007,Chinu,001"
+        expected:["Chiranjeev,007","Chinu,001"]
         },
-        //  {
-        // customers:[new Customer("Chiranjeev","007"), 
-        //              new Customer("Chinu","001")],
-        // expected:"Chiranjeev,007,Chinu,001"
-        // }
+         {
+        customers:[new Customer("Veeru","002"), 
+                     new Customer("Heeru","000")],
+        expected:["Veeru,002","Heeru,000"]
+        }
         
     
     ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customers,expected})=>{
@@ -62,12 +62,12 @@ describe('Customer CSV File writer',()=>{
     
         //Assert
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
-            expect(mockFileWriter.writeLine).toHaveBeenLastCalledWith("customers.csv",expected)
+            expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",expected[0])
     
-        })
+            expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",expected[1])
+
+    })
 
   })
-
-
 
 })
