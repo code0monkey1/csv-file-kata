@@ -7,7 +7,7 @@ class CustomerCsvFileWriter{
       
 
        public execute(fileName:string,customers:Customer[]){
-        let text=''
+
            customers
                   .forEach(customer=> 
                                 this.fileWriter
