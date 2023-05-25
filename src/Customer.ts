@@ -17,7 +17,11 @@ class Customer{
   public set contactNumber(customerContactNumber:string){
     this._contactNumber=customerContactNumber
   }
-  
+
+  public toString(){
+   return this._name+","+this._contactNumber
+  }
+
 }
 
 export default Customer;

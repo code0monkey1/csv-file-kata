@@ -10,10 +10,9 @@ describe('Customer CSV File writer',()=>{
           expect(CustomerCsvFileWriter).toBeInstanceOf(Function)
    })
 
-   test("?",()=>{
+   test.each([{customer:new Customer("Chiranjeev","007"),expected:"Chiranjeev,007"}])("For $customer the result should be $expected",({customer,expected})=>{
        
     //Arrange
-       const customer:Customer=new Customer("Chiranjeev","007");
 
        const mockFileWriter:FileWriter={
            writeLine:jest.fn()
@@ -24,10 +23,9 @@ describe('Customer CSV File writer',()=>{
     //Act
          sut.execute('customers.csv',[customer])
 
-         
     //Assert
         expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(1)
-        expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",customer.name)
+        expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",expected)
 
    })
 
