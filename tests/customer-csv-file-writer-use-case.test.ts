@@ -62,7 +62,7 @@ describe('Customer CSV File writer',()=>{
     
         //Assert
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
-            expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",expected)
+            expect(mockFileWriter.writeLine).toHaveBeenLastCalledWith("customers.csv",expected)
     
         })
 

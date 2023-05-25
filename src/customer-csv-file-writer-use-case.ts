@@ -7,11 +7,11 @@ class CustomerCsvFileWriter{
       
 
        public execute(fileName:string,customers:Customer[]){
-
+        let text=''
            customers
                   .forEach(customer=> 
                                 this.fileWriter
-                                .writeLine(fileName,customer.toString() ))
+                                .writeLine(fileName,text+=","+customer.toString() ))
        }
 
 }
