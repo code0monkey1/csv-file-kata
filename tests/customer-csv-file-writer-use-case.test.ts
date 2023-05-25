@@ -10,7 +10,12 @@ describe('Customer CSV File writer',()=>{
           expect(CustomerCsvFileWriter).toBeInstanceOf(Function)
    })
 
-   test.each([{customer:new Customer("Chiranjeev","007"),expected:"Chiranjeev,007"}])("For $customer the result should be $expected",({customer,expected})=>{
+   test.each([
+
+    {customer:new Customer("Chiranjeev","007"),expected:"Chiranjeev,007"},
+    {customer:new Customer("Chinu","001"),expected:"Chinu,001"}
+
+])("For $customer the result should be $expected",({customer,expected})=>{
        
     //Arrange
 
