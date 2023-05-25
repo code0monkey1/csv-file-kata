@@ -11,7 +11,8 @@ describe('Customer CSV File writer',()=>{
    })
 
    test("?",()=>{
-
+       
+    //Arrange
        const customer:Customer=new Customer("Chiranjeev","007");
 
        const mockFileWriter:FileWriter={
@@ -19,6 +20,13 @@ describe('Customer CSV File writer',()=>{
        }
 
        const sut = new CustomerCsvFileWriter(mockFileWriter);
+    
+    //Act
+    
+
+
+    //Assert
+
    })
 
 
