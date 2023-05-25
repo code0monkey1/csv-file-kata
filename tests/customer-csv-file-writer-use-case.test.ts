@@ -17,6 +17,8 @@ describe('Customer CSV File writer',()=>{
        const mockFileWriter:FileWriter={
            writeLine:jest.fn()
        }
+
+       const sut = new CustomerCsvFileWriter(mockFileWriter);
    })
 
 
