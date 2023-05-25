@@ -10,7 +10,7 @@ describe('Customer CSV File writer',()=>{
         {customer:new Customer("Chiranjeev","007"),expected:"Chiranjeev,007"},
         {customer:new Customer("Chinu","001"),expected:"Chinu,001"}
     
-    ])("For $customer the result should be $expected",({customer,expected})=>{
+    ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customer,expected})=>{
             
         //Arrange
     
