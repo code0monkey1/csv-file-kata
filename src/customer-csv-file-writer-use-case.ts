@@ -13,6 +13,7 @@ class CustomerCsvFileWriter{
                                 this.fileWriter
                                 .writeLine(fileName,text+=","+customer.toString() ))
        }
+       
 
 }
 
