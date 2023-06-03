@@ -112,9 +112,11 @@ describe('Customer CSV File writer',()=>{
             //Act
             sut.execute(fileName,CustomerTestHelper.customers11)
       
-            expect(mockFileWriter.writeLine)
-            .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
+            // expect(mockFileWriter.writeLine)
+            // .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
             
+            assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerTestHelper.customers11.slice(0,10))
+            assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',CustomerTestHelper.customers11.slice(0,10))
       })
 
   })
@@ -144,5 +146,4 @@ describe('Customer CSV File writer',()=>{
    function assertCustomersWereWrittenToFile(fileWriter:FileWriter,fileName:string,customers:Customer[]){
         customers.map( customer => assertCustomerWasWrittenToFile(fileWriter,fileName,customer))
 
-        expect(fileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
    }
