@@ -105,10 +105,14 @@ describe('Customer CSV File writer',()=>{
             
             const fileName = 'customers.csv';
             
+            const  LAST_INDEX = CustomerTestHelper.customers11.length-1
+
+            const lastCustomer = CustomerTestHelper.customers11[LAST_INDEX]
+            
             //Act
             sut.execute(fileName,CustomerTestHelper.customers11)
-
-            
+      
+            expect(mockFileWriter.writeLine).lastCalledWith('customers1.csv',lastCustomer)
             
       })
 
