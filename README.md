@@ -5,6 +5,9 @@
 ![TDD](pictures/csv-kata.png 'CSV solid kata')
 
 ---
+![Test](./pictures/requirement-2.png "csv requirement 2")
+
+---
 
 Config : 
 
