@@ -115,7 +115,7 @@ describe('Customer CSV File writer',()=>{
             // expect(mockFileWriter.writeLine)
             // .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
             
-            // assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerTestHelper.customers11.slice(0,10))
+            assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerTestHelper.customers11.slice(0,10))
             assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',CustomerTestHelper.customers11.slice(10,))
 
             // expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(CustomerTestHelper.customers11.length)
@@ -147,7 +147,7 @@ describe('Customer CSV File writer',()=>{
    }
 
    function assertCustomersWereWrittenToFile(fileWriter:FileWriter,fileName:string,customers:Customer[]){
-    console.log("Customers are",customers)
+     console.log("Customers are",customers)
          customers.map( customer => assertCustomerWasWrittenToFile(fileWriter,fileName,customer))
         expect(fileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
    }
