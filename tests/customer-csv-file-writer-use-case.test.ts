@@ -110,7 +110,7 @@ describe('Customer CSV File writer',()=>{
             const lastCustomer = CustomerTestHelper.customers11[LAST_INDEX]
             
             //Act
-            sut.writeCustomers(fileName,CustomerTestHelper.customers11)
+            sut.writeCustomersBatched(fileName,CustomerTestHelper.customers11)
       
             expect(mockFileWriter.writeLine)
             .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))

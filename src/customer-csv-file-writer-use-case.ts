@@ -16,8 +16,6 @@ class CustomerCsvFileWriter{
                  throw new Error("argument is null : `customers`");
               }
               
-             let fileNumber = 0
-              
               customers.forEach(customer => 
                                      this
                                      .fileWriter
