@@ -2,10 +2,12 @@ import Customer from "./Customer";
 import { FileWriter } from "./FileWriter";
 
 class CustomerCsvFileWriter{
-
-       constructor(private readonly fileWriter:FileWriter){}
       
-
+       private fileCount=0
+       
+       constructor(private readonly fileWriter:FileWriter){}
+       
+       
        public execute(fileName:string,customers:Customer[]){
           
               if(customers===null){
