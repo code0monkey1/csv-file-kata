@@ -57,13 +57,13 @@ describe('Customer CSV File writer',()=>{
             //Assert
                 expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
 
-            
-            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[0])
-            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[1])
-            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[2])
-            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[3])
-            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[4])
-            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[5])
+
+            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[0])
+            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[1])
+            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[2])
+            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[3])
+            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[4])
+            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[5])
            
     })
 
