@@ -10,8 +10,10 @@ let customers:Customer[]=[
                             new Customer("Heeru","000"),
                           ]
 
+let customerSignatures:string[]=customers.map(customer => customer.toString())
 
 
 export default {
-  customers
+  customers,
+  customerSignatures
 }

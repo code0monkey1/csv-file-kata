@@ -7,8 +7,12 @@ describe('Customer CSV File writer',()=>{
   describe("one customer",()=>{
         test.each([
     
-        {customer:new Customer("Chiranjeev","007"),expected:"Chiranjeev,007"},
-        {customer:new Customer("Chinu","001"),expected:"Chinu,001"}
+        {   customer:CustomerTestHelper.customers[0],
+            expected:CustomerTestHelper.customerSignatures[0]
+        },
+        {   customer:CustomerTestHelper.customers[0],
+            expected:CustomerTestHelper.customerSignatures[0]
+        }
     
     ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customer,expected})=>{
             
@@ -36,21 +40,11 @@ describe('Customer CSV File writer',()=>{
     
         {
         customers:CustomerTestHelper.customers,
-        expected:CustomerTestHelper.customers.map(customer => customer.toString())
+        expected:CustomerTestHelper.customerSignatures
             },
          {
-        customers: [
-                     new Customer("Veeru","002"), 
-                     new Customer("Heeru","000"),
-                     new Customer("Jeevan","007"), 
-                     new Customer("Zero","001")
-                    ],
-        expected:[
-                    "Veeru,002",
-                    "Heeru,000",
-                    "Jeevan,007",
-                    "Zero,001"
-                 ]
+        customers:CustomerTestHelper.customers,
+        expected:CustomerTestHelper.customerSignatures
         },
         
     
@@ -71,7 +65,8 @@ describe('Customer CSV File writer',()=>{
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
 
              expected.forEach( input =>{
-                    expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",input)
+                    expect(mockFileWriter.writeLine)
+                    .toHaveBeenCalledWith("customers.csv",input)
              })
            
     })
