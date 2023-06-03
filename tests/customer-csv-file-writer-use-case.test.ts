@@ -190,3 +190,13 @@ describe('Customer CSV File writer',()=>{
          customers.map( customer => assertCustomerWasWrittenToFile(fileWriter,fileName,customer))
         
    }
+
+   function createCustomers(numberOfCustomers:number){
+        const customers=[]
+
+        for(let i=0;i<numberOfCustomers;i++){
+            customers.push(createCustomer(i.toString(),i.toString()))
+        }
+
+        return customers
+   }
