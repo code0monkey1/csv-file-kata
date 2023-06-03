@@ -24,7 +24,7 @@ class CustomerCsvFileWriter{
                             fileNumber++
                       }
                          
-                     this
+                            this
                             .fileWriter
                             .writeLine(`${name}${fileNumber?fileNumber:''}${extension}`,
                                    this.formatAsCsvRow(customers[i]))
@@ -33,14 +33,11 @@ class CustomerCsvFileWriter{
                                 
        }
 
+
        private  formatAsCsvRow=(customer:Customer):string=>{
            return `${customer.name},${customer.contactNumber}`
        }
 
-     
-       
-
 }
-
 
 export default CustomerCsvFileWriter
