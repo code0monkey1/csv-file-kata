@@ -42,20 +42,24 @@ describe('Customer CSV File writer',()=>{
                      new Customer("Zero","001")
                     ],
         expected:[
-                "Chiranjeev,007",
-                "Chinu,001",
-                "Jeevan,007",
-                "Zero,001"
-            ]
-        },
+                    "Chiranjeev,007",
+                    "Chinu,001",
+                    "Jeevan,007",
+                    "Zero,001"
+                ]
+            },
          {
-        customers:[
+        customers: [
                      new Customer("Veeru","002"), 
-                     new Customer("Heeru","000")
+                     new Customer("Heeru","000"),
+                     new Customer("Jeevan","007"), 
+                     new Customer("Zero","001")
                     ],
         expected:[
                     "Veeru,002",
-                    "Heeru,000"
+                    "Heeru,000",
+                    "Jeevan,007",
+                    "Zero,001"
                  ]
         },
         
@@ -80,8 +84,6 @@ describe('Customer CSV File writer',()=>{
                     expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",input)
              })
            
-
-
     })
 
   })
