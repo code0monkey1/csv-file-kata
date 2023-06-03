@@ -122,6 +122,32 @@ describe('Customer CSV File writer',()=>{
 
       })
 
+         test("If the customers are 20 , then the name of the last file will be `customers1.csv`",()=>{
+            
+            const mockFileWriter:FileWriter=createFileWriter()
+            
+            const sut = createCsvFileWriter(mockFileWriter)
+            
+            const fileName = 'customers.csv';
+            
+            const  LAST_INDEX = 10
+
+            const lastCustomer = CustomerTestHelper.customers11[LAST_INDEX]
+            
+            //Act
+            sut.writeCustomersBatched(fileName,CustomerTestHelper.customers20)
+      
+            expect(mockFileWriter.writeLine)
+            .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
+            
+            assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerTestHelper.customers20.slice(0,10))
+            assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',CustomerTestHelper.customers20.slice(10,))
+
+            expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(CustomerTestHelper.customers20.length)
+
+      })
+
+
   })
 
 })
