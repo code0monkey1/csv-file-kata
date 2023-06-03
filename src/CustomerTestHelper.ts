@@ -12,6 +12,6 @@ let customers:Customer[]=[
 
 
 
-export {
+export default {
   customers
 }
