@@ -9,8 +9,8 @@ class CustomerCsvFileWriter{
        
        public execute(fileName:string,customers:Customer[]){
 
-              const name =fileName.slice(0, fileName.lastIndexOf('.'))
-              const extension = fileName.slice(fileName.lastIndexOf('.'))
+              const NAME = fileName.slice(0, fileName.lastIndexOf('.'))
+              const EXT = fileName.slice(fileName.lastIndexOf('.'))
               
               if(customers===null){
                  throw new Error("argument is null : `customers`");
@@ -26,7 +26,7 @@ class CustomerCsvFileWriter{
                          
                             this
                             .fileWriter
-                            .writeLine(`${name}${fileNumber?fileNumber:''}${extension}`,
+                            .writeLine(`${NAME}${fileNumber||''}${EXT}`,
                                    this.formatAsCsvRow(customers[i]))
 
               }
