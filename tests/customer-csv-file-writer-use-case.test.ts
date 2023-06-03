@@ -148,5 +148,5 @@ describe('Customer CSV File writer',()=>{
 
    function assertCustomersWereWrittenToFile(fileWriter:FileWriter,fileName:string,customers:Customer[]){
         customers.map( customer => assertCustomerWasWrittenToFile(fileWriter,fileName,customer))
-
+        expect(fileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
    }
