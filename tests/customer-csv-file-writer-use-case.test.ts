@@ -149,8 +149,16 @@ describe('Customer CSV File writer',()=>{
 
       })
 
-      test.todo("If file extension is missing , an error is thrown  : Missing File Extension"),()=>{
-           
+      test("If file extension is missing , an error is thrown  : Missing File Extension"),()=>{
+              const mockFileWriter:FileWriter=createFileWriter()
+            
+            const sut = createCsvFileWriter(mockFileWriter)
+            
+            const fileName = 'customers.csv';
+            
+            const lastCustomer = CustomerTestHelper.customers20.slice(0,9)
+            
+            //Act
              
       }
 
