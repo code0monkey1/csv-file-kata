@@ -25,7 +25,7 @@ class CustomerCsvFileWriter{
                             
                             this
                             .fileWriter
-                            .writeLine(`${name}${fileNumber?fileNumber:''}.${extension}`,
+                            .writeLine(`${name}${fileNumber?fileNumber:''}${extension}`,
                             this.formatAsCsvRow(customers[i]))
                       }
 
