@@ -12,11 +12,11 @@ class CustomerCsvFileWriter{
                  throw new Error("argument is null : `customers`");
               }
 
-           customers
-                  .forEach(customer=> 
-                                this
-                                .fileWriter
-                                .writeLine(fileName,this.formatAsCsvRow(customer)))
+              customers
+                     .forEach(customer => 
+                                   this
+                                   .fileWriter
+                                   .writeLine(fileName,this.formatAsCsvRow(customer)))
                                 
        }
 
