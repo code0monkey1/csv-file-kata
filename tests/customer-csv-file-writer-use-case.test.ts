@@ -39,12 +39,12 @@ describe('Customer CSV File writer',()=>{
         test.each([
     
         {
-        customers:CustomerTestHelper.customers,
-        expected:CustomerTestHelper.customerSignatures
+        customers:CustomerTestHelper.customers.slice(0,2),
+        expected:CustomerTestHelper.customerSignatures.slice(0,2)
             },
          {
-        customers:CustomerTestHelper.customers,
-        expected:CustomerTestHelper.customerSignatures
+        customers:CustomerTestHelper.customers.slice(2),
+        expected:CustomerTestHelper.customerSignatures.slice(2)
         },
         
     
