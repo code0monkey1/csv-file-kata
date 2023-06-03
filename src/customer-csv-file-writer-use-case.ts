@@ -23,15 +23,16 @@ class CustomerCsvFileWriter{
 
        public writeCustomersBatched(fileName:string,customers:Customer[]){
 
-              const BASE_FILE_NAME = fileName.slice(0, fileName.lastIndexOf('.'))
-              const EXT = fileName.slice(fileName.lastIndexOf('.'))
+              const baseFileName = fileName.slice(0, fileName.lastIndexOf('.'))
+              const ext = fileName.slice(fileName.lastIndexOf('.'))
+              
               const BATCH_SIZE = 10
 
               let fileCount = 0
 
               for (let i = 0 ;i<customers.length;i+=BATCH_SIZE){
 
-                     const nextFileName = `${BASE_FILE_NAME}${fileCount || ''}${EXT}`;
+                     const nextFileName = `${baseFileName}${fileCount || ''}${ext}`;
                      const nextCustomers = customers.slice(i, i + BATCH_SIZE);
 
                      this.writeCustomers(nextFileName,nextCustomers)
