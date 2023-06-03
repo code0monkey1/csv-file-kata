@@ -15,8 +15,9 @@ class CustomerCsvFileWriter{
               
             customers
                      .forEach(customer => 
-                                          this.fileWriter
-                                          .writeLine(fileName,this.formatAsCsvRow(customer))
+                                    this
+                                    .fileWriter
+                                    .writeLine(fileName,this.formatAsCsvRow(customer))
                             )
                                 
        }
