@@ -97,7 +97,11 @@ describe('Customer CSV File writer',()=>{
 
   describe("when entries are less than 10",()=>{
           
-      
+      test("Only 1 file needs to be created with all entries",()=>{
+         
+              
+          
+      })
 
   })
 
