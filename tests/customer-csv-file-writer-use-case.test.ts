@@ -1,3 +1,4 @@
+import Customer from "../src/Customer";
 import CustomerTestHelper from "../src/CustomerTestHelper";
 import { FileWriter } from '../src/FileWriter';
 import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case";
@@ -74,4 +75,9 @@ describe('Customer CSV File writer',()=>{
    // this is done to isolate the construction details 
    function createCsvFileWriter(fileWriter:FileWriter):CustomerCsvFileWriter{
         return new CustomerCsvFileWriter(fileWriter)
+   }
+
+   // to remove the constructor details 
+   function createCustomer(name:string,contactNumber:string):Customer{
+     return  new Customer(name,contactNumber)
    }
