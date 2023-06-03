@@ -13,7 +13,7 @@ class CustomerCsvFileWriter{
                  throw new Error("argument is null : `customers`");
               }
               
-            customers
+           customers
                      .forEach(customer => 
                                     this
                                     .fileWriter
