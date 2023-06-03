@@ -25,6 +25,7 @@ class CustomerCsvFileWriter{
        }
 
        public writeCustomersBatched(fileName:string,customers:Customer[]){
+              
                if(customers.length>10){
                  this.writeCustomers("customers1.csv",customers)
                }
