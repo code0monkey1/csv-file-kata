@@ -51,10 +51,10 @@ describe('Customer CSV File writer',()=>{
         
         const sut = createCsvFileWriter(mockFileWriter)
         //Act
-            sut.execute('customers.csv',[new Customer("Chiranjeev","001")])
+            sut.execute('customers.csv',customers)
 
         //Assert
-            expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(1)
+            expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
 
         
             assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",createCustomer("Chiranjeev",'001'))
