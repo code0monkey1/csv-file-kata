@@ -58,8 +58,6 @@ Config :
 > 1. _Act_ : Execute the 1 thing to be tested.
 > 1. _Assert_ : Verify your **actual** value matches the **expected** value.
 
-![Test](./pictures/structure-of-test.jpg)
-
 ---
 
 ### F.I.R.S.T Principles for Testing 
