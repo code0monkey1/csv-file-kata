@@ -7,14 +7,10 @@ describe('Customer CSV File writer',()=>{
   describe("one customer",()=>{
         test.each([
     
-        {   customer:CustomerTestHelper.customers[0],
-            expected:CustomerTestHelper.customerSignatures[0]
-        },
-        {   customer:CustomerTestHelper.customers[0],
-            expected:CustomerTestHelper.customerSignatures[0]
-        }
+        {   customer:CustomerTestHelper.customers[0] },
+        {   customer:CustomerTestHelper.customers[0] }
     
-    ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customer,expected})=>{
+    ])("for customer: $customer._name $customer._contactNumber",({customer})=>{
             
         //Arrange
             const mockFileWriter:FileWriter=createFileWriter()
