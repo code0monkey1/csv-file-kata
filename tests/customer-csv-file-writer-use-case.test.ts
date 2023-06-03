@@ -87,7 +87,6 @@ describe('Customer CSV File writer',()=>{
                 sut.execute(fileName,customers)
 
             //Assert
-                expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
 
              assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers)
 
@@ -119,4 +118,6 @@ describe('Customer CSV File writer',()=>{
 
    function assertCustomersWereWrittenToFile(fileWriter:FileWriter,fileName:string,customers:Customer[]){
         customers.map( customer => assertCustomerWasWrittenToFile(fileWriter,fileName,customer))
+
+        expect(fileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
    }
