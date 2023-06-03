@@ -26,7 +26,8 @@ describe('Customer CSV File writer',()=>{
     
         //Assert
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(1)
-            expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",expected)
+                    
+            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customer)
     
         })
 
@@ -43,7 +44,7 @@ describe('Customer CSV File writer',()=>{
         
         
     
-    ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customers,expected})=>{
+    ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customers})=>{
             
             //Arrange
             
