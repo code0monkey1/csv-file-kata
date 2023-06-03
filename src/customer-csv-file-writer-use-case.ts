@@ -18,23 +18,21 @@ class CustomerCsvFileWriter{
               
              let fileNumber = 0
               
-              for(let i=0;i<customers.length;i++){
-                    
-                     if(i!=0 && i%10==0){
-                            fileNumber++
-                      }
-                         
-                            this
-                            .fileWriter
-                            .writeLine(`${NAME}${fileNumber||''}${EXT}`,
-                                   this.formatAsCsvRow(customers[i]))
-
-              }
-                                
+              customers.forEach(customer => 
+                                     this
+                                     .fileWriter
+                                     .writeLine(fileName,this.formatAsCsvRow(customer))
+                             )
+                                   
        }
 
        public writeCustomersBatched(fileName:string,customers:Customer[]){
-               this.writeCustomers(fileName,customers)
+               if(customers.length>10){
+                 this.writeCustomers("customers1.csv",customers)
+               }
+               else{
+                     this.writeCustomers("customers.csv",customers)
+               }
        }
 
 
