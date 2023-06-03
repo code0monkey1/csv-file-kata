@@ -32,8 +32,11 @@ class CustomerCsvFileWriter{
               let fileCount = 0
 
               for (let i = 0 ;i<customers.length;i+=BATCH_SIZE){
-                       
-                     this.writeCustomers(`${NAME}${fileCount||''}${EXT}`,customers.slice(i,i+BATCH_SIZE))
+
+                     const nextFileName = `${NAME}${fileCount || ''}${EXT}`;
+                     const nextCustomers = customers.slice(i, i + BATCH_SIZE);
+
+                     this.writeCustomers(nextFileName,nextCustomers)
 
                      fileCount++
               }
