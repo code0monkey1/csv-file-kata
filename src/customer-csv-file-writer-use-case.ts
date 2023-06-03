@@ -10,7 +10,8 @@ class CustomerCsvFileWriter{
 
            customers
                   .forEach(customer=> 
-                                this.fileWriter
+                                this
+                                .fileWriter
                                 .writeLine(fileName,customer.toString()))
                                 
        }
