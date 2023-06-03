@@ -24,15 +24,15 @@ class CustomerCsvFileWriter{
 
        public writeCustomersBatched(fileName:string,customers:Customer[]){
               
-              const extStartIndex=fileName.lastIndexOf('.')
+              const extIndex=fileName.lastIndexOf('.')
                
-              if(extStartIndex===-1){
+              if(extIndex===-1){
                 throw new Error("File Extension Missing")
               }
 
-              const baseFileName = fileName.substring(0, extStartIndex)
+              const baseFileName = fileName.substring(0, extIndex)
               
-              const ext = fileName.substring(extStartIndex)
+              const ext = fileName.substring(extIndex)
             
               const BATCH_SIZE = 10
 
