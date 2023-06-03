@@ -97,11 +97,12 @@ describe('Customer CSV File writer',()=>{
 
   describe("when entries are less than 10",()=>{
           
-      test("The starting file count is 0",()=>{
+      test("If the customers are 11 , then the name of the last file will be `customers1.csv`",()=>{
             
             const mockFileWriter:FileWriter=createFileWriter()
             
             const sut = createCsvFileWriter(mockFileWriter)
+            
             const fileName = 'customers.csv';
             
             //Act
