@@ -13,6 +13,10 @@ let customers:Customer[]=[
 let customerSignatures:string[]=customers.map(customer => customer.toString())
 
 
+let customers11:Customer[]=[
+  
+]
+
 export default {
   customers,
   customerSignatures
