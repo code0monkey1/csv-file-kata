@@ -25,7 +25,7 @@ class CustomerCsvFileWriter{
 
               const baseFileName = fileName.slice(0, fileName.lastIndexOf('.'))
               const ext = fileName.slice(fileName.lastIndexOf('.'))
-              
+              console.log("ext is",ext)
               if(!ext){
                      throw new Error("File Extension Missing")
               }
