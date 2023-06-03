@@ -14,7 +14,7 @@ describe('Customer CSV File writer',()=>{
                 const fileName = 'customers.csv';
         
                 //Act
-                expect(()=>sut.execute(fileName,null!)).toThrowError("customer is null")
+                expect(()=>sut.execute(fileName,null!)).toThrowError("argument is null : `customers`")
 
          })
     })
