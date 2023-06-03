@@ -7,34 +7,13 @@ class CustomerCsvFileWriter{
        constructor(private readonly fileWriter:FileWriter){}
        
        
-       public writeCustomers(fileName:string,customers:Customer[]){
-
-              const NAME = fileName.slice(0, fileName.lastIndexOf('.'))
-              const EXT = fileName.slice(fileName.lastIndexOf('.'))
-              
+      
+        public writeCustomers(fileName:string,customers:Customer[]){
+           
               if(customers===null){
                  throw new Error("argument is null : `customers`");
               }
               
-             let fileNumber = 0
-              
-              for(let i=0;i<customers.length;i++){
-                    
-                     if(i!=0 && i%10==0){
-                            fileNumber++
-                      }
-                         
-                            this
-                            .fileWriter
-                            .writeLine(`${NAME}${fileNumber||''}${EXT}`,
-                                   this.formatAsCsvRow(customers[i]))
-
-              }
-                                
-       }
-
-        public _writeCustomers(fileName:string,customers:Customer[]){
-
         
             customers
               .forEach(customer => 
@@ -56,7 +35,7 @@ class CustomerCsvFileWriter{
 
               for (let i = 0 ;i<customers.length;i+=BATCH_SIZE){
                        
-                     this._writeCustomers(`${NAME}${fileCount||''}${EXT}`,customers.slice(i,i+BATCH_SIZE))
+                     this.writeCustomers(`${NAME}${fileCount||''}${EXT}`,customers.slice(i,i+BATCH_SIZE))
 
                      fileCount++
               }
