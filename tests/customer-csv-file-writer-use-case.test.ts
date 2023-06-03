@@ -1,6 +1,6 @@
-import CustomerTestHelper from "../src/CustomerTestHelper"
-import { FileWriter } from "../src/FileWriter"
-import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case"
+import CustomerTestHelper from "../src/CustomerTestHelper";
+import { FileWriter } from '../src/FileWriter';
+import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case";
 describe('Customer CSV File writer',()=>{
 
   describe("one customer",()=>{
@@ -18,7 +18,7 @@ describe('Customer CSV File writer',()=>{
         //Arrange
             const mockFileWriter:FileWriter=createFileWriter()
     
-            const sut = new CustomerCsvFileWriter(mockFileWriter);
+            const sut = createCsvFileWriter(mockFileWriter)
         
         //Act
               sut.execute('customers.csv',[customer])
@@ -51,8 +51,7 @@ describe('Customer CSV File writer',()=>{
         
         const mockFileWriter:FileWriter=createFileWriter()
         
-        const sut = new CustomerCsvFileWriter(mockFileWriter);
-         
+        const sut = createCsvFileWriter(mockFileWriter)
         //Act
             sut.execute('customers.csv',customers)
 
@@ -75,3 +74,7 @@ describe('Customer CSV File writer',()=>{
             writeLine:jest.fn()
         }
    }  
+
+   function createCsvFileWriter(fileWriter:FileWriter):CustomerCsvFileWriter{
+        return new CustomerCsvFileWriter(fileWriter)
+   }
