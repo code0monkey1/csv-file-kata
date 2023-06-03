@@ -1,4 +1,3 @@
-import Customer from "../src/Customer"
 import CustomerTestHelper from "../src/CustomerTestHelper"
 import { FileWriter } from "../src/FileWriter"
 import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case"
@@ -73,4 +72,11 @@ describe('Customer CSV File writer',()=>{
 
   })
 
+
 })
+
+   function createFileWriter():FileWriter{
+       return {
+            writeLine:jest.fn()
+        }
+   }  
