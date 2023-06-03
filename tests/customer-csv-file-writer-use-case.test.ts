@@ -138,7 +138,7 @@ describe('Customer CSV File writer',()=>{
             sut.writeCustomersBatched(fileName,CustomerTestHelper.customers20)
       
             expect(mockFileWriter.writeLine)
-            .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
+            .lastCalledWith('customers2.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
             
             assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerTestHelper.customers20.slice(0,10))
             assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',CustomerTestHelper.customers20.slice(10,))
