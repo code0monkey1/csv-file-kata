@@ -9,15 +9,14 @@ class CustomerCsvFileWriter{
        
         public writeCustomers(fileName:string,customers:Customer[]){
             
-           if(customers===null){
+           if(customers===null)
                  throw new Error("argument is null : `customers`");
-              }
-              
-            customers
+                         
+              customers
                      .forEach(customer => 
-                            this
-                            .fileWriter
-                            .writeLine(fileName,this.formatAsCsvRow(customer))
+                                   this
+                                   .fileWriter
+                                   .writeLine(fileName,this.formatAsCsvRow(customer))
                             )
                                 
        }
@@ -26,10 +25,9 @@ class CustomerCsvFileWriter{
               
               const extIndex=fileName.lastIndexOf('.')
                
-              if(extIndex===-1){
-                throw new Error("File Extension Missing")
-              }
-
+              if(extIndex===-1)
+                     throw new Error("File Extension Missing")
+              
               const baseFileName = fileName.substring(0, extIndex)
               
               const ext = fileName.substring(extIndex)
