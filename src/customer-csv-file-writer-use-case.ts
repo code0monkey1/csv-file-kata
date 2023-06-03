@@ -33,6 +33,19 @@ class CustomerCsvFileWriter{
                                 
        }
 
+        public _writeCustomers(fileName:string,customers:Customer[]){
+
+        
+            customers
+            .forEach(customer => 
+                            this.fileWriter
+                            .writeLine(fileName,this.formatAsCsvRow(customer))
+              )
+                                
+       }
+
+
+
        public writeCustomersBatched(fileName:string,customers:Customer[]){
                
               this.writeCustomers(fileName,customers)
