@@ -56,10 +56,9 @@ describe('Customer CSV File writer',()=>{
         //Assert
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
 
-             expected.forEach( input =>{
-                    expect(mockFileWriter.writeLine)
-                    .toHaveBeenCalledWith("customers.csv",input)
-             })
+        
+            assertCustomerWasWrittenToFile(mockFileWriter,"",createCustomer("Chiranjeev",'100'))
+             
            
     })
 
@@ -80,4 +79,9 @@ describe('Customer CSV File writer',()=>{
    // to remove the constructor details 
    function createCustomer(name:string,contactNumber:string):Customer{
      return  new Customer(name,contactNumber)
+   }
+
+   function assertCustomerWasWrittenToFile(fileWriter:FileWriter,fileName:string,customer:Customer){
+         expect(fileWriter.writeLine)
+                    .toHaveBeenCalledWith("customers.csv",customer.toString())
    }
