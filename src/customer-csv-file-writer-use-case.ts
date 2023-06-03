@@ -33,7 +33,7 @@ class CustomerCsvFileWriter{
 
               for (let i = 0 ;i<customers.length;i+=BATCH_SIZE){
                        
-                     this.writeCustomers(`${NAME}${fileCount||''}${EXT}`,customers.slice(i,i+BATCH_SIZE))
+                     this.writeCustomers(this.getNextFileName(NAME, fileCount, EXT),customers.slice(i,i+BATCH_SIZE))
 
                      fileCount++
               }
@@ -45,6 +45,10 @@ class CustomerCsvFileWriter{
            return `${customer.name},${customer.contactNumber}`
        }
 
+
+       private getNextFileName(NAME: string, fileCount: number, EXT: string): string {
+              return `${NAME}${fileCount || ''}${EXT}`;
+       }
 }
 
 export default CustomerCsvFileWriter
