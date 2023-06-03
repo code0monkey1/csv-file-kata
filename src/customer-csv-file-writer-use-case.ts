@@ -7,6 +7,10 @@ class CustomerCsvFileWriter{
       
 
        public execute(fileName:string,customers:Customer[]){
+          
+              if(customers===null){
+                 throw new Error("customer is null");
+              }
 
            customers
                   .forEach(customer=> 
