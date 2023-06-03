@@ -18,9 +18,9 @@ class Customer{
     this._contactNumber=customerContactNumber
   }
 
-  public toString(){
-   return this._name+","+this._contactNumber
-  }
+  // public toString(){
+  //  return this._name+","+this._contactNumber
+  // }
 
 }
 

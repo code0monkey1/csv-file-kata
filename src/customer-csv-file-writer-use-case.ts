@@ -16,8 +16,12 @@ class CustomerCsvFileWriter{
                   .forEach(customer=> 
                                 this
                                 .fileWriter
-                                .writeLine(fileName,customer.toString()))
+                                .writeLine(fileName,this.formatAsCsvRow(customer)))
                                 
+       }
+
+       private formatAsCsvRow=(customer:Customer):string=>{
+           return `${customer.name},${customer.contactNumber}`
        }
        
 
