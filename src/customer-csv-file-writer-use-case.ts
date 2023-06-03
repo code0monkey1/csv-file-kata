@@ -9,8 +9,10 @@ class CustomerCsvFileWriter{
        
        public execute(fileName:string,customers:Customer[]){
 
-              console.log( fileName.slice(0, fileName.lastIndexOf('.')))
-          
+              const name =fileName.slice(0, fileName.lastIndexOf('.'))
+              const extension = fileName.slice(fileName.lastIndexOf('.'))
+              
+              console.log("name",name,"extension",extension)
               if(customers===null){
                  throw new Error("argument is null : `customers`");
               }
