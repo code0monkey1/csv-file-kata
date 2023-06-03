@@ -33,7 +33,7 @@ class CustomerCsvFileWriter{
                                 
        }
 
-       private writeCustomersBatched(fileName:string,customers:Customer[]){
+       public writeCustomersBatched(fileName:string,customers:Customer[]){
                this.writeCustomers(fileName,customers)
        }
 
