@@ -21,8 +21,6 @@ class CustomerCsvFileWriter{
                                 
        }
 
-
-
        public writeCustomersBatched(fileName:string,customers:Customer[]){
 
               const NAME = fileName.slice(0, fileName.lastIndexOf('.'))
