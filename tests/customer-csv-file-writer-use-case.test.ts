@@ -149,7 +149,7 @@ describe('Customer CSV File writer',()=>{
 
       })
 
-      test("If file extension is missing , an error is thrown  :File Extension Missing",()=>{
+      test("If file extension is missing , an error is thrown `File Extension Missing`",()=>{
             const mockFileWriter:FileWriter=createFileWriter()
             
             const sut = createCsvFileWriter(mockFileWriter)
@@ -158,12 +158,9 @@ describe('Customer CSV File writer',()=>{
             
             const customer = createCustomer("a","1")
             
-            //Act
-             
-             expect(()=>sut.writeCustomersBatched(fileName,[customer])).toThrow("File Extension Missing") 
+            //Act         
+            expect(()=>sut.writeCustomersBatched(fileName,[customer])).toThrow("File Extension Missing") 
      })
-
-
 
      })
 
