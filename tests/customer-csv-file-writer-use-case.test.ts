@@ -57,7 +57,7 @@ describe('Customer CSV File writer',()=>{
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
 
         
-            assertCustomerWasWrittenToFile(mockFileWriter,"",createCustomer("Chiranjeev",'100'))
+            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",createCustomer("Chiranjeev",'100'))
              
            
     })
