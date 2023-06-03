@@ -49,20 +49,20 @@ describe('Customer CSV File writer',()=>{
     ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customers,expected})=>{
             
         //Arrange
-    
-            const mockFileWriter:FileWriter={
-                writeLine:jest.fn()
-            }
-    
-            const sut = new CustomerCsvFileWriter(mockFileWriter);
         
+        const mockFileWriter:FileWriter={
+            writeLine:jest.fn()
+        }
+
+        const sut = new CustomerCsvFileWriter(mockFileWriter);
+         
         //Act
-              sut.execute('customers.csv',customers)
-    
+            sut.execute('customers.csv',customers)
+
         //Assert
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
             expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",expected[0])
-    
+
             expect(mockFileWriter.writeLine).toHaveBeenCalledWith("customers.csv",expected[1])
 
     })
