@@ -34,8 +34,11 @@ class CustomerCsvFileWriter{
        }
 
         public _writeCustomers(fileName:string,customers:Customer[]){
-
-        
+            
+           if(customers===null){
+                 throw new Error("argument is null : `customers`");
+              }
+              
             customers
               .forEach(customer => 
                                    this.fileWriter
@@ -56,7 +59,6 @@ class CustomerCsvFileWriter{
 
               for (let i = 0 ;i<customers.length;i+=BATCH_SIZE){
                        
-
                      this._writeCustomers(`${NAME}${fileCount||''}${EXT}`,customers.slice(i,i+BATCH_SIZE))
 
                      fileCount++
