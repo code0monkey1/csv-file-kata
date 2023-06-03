@@ -7,7 +7,7 @@ class CustomerCsvFileWriter{
        constructor(private readonly fileWriter:FileWriter){}
        
        
-       public execute(fileName:string,customers:Customer[]){
+       public writeCustomers(fileName:string,customers:Customer[]){
 
               const NAME = fileName.slice(0, fileName.lastIndexOf('.'))
               const EXT = fileName.slice(fileName.lastIndexOf('.'))
@@ -31,6 +31,10 @@ class CustomerCsvFileWriter{
 
               }
                                 
+       }
+
+       private writeCustomersBatched(fileName:string,customers:Customer[]){
+               this.writeCustomers(fileName,customers)
        }
 
 

@@ -15,7 +15,7 @@ describe('Customer CSV File writer',()=>{
                 const fileName = 'customers.csv';
         
                 //Act
-                expect(()=>sut.execute(fileName,null!)).toThrowError("argument is null : `customers`")
+                expect(()=>sut.writeCustomers(fileName,null!)).toThrowError("argument is null : `customers`")
 
          })
     })
@@ -31,7 +31,7 @@ describe('Customer CSV File writer',()=>{
                 const fileName = 'customers.csv';
         
                 //Act
-                sut.execute(fileName,[])
+                sut.writeCustomers(fileName,[])
                     
                 expect(mockFileWriter.writeLine).toBeCalledTimes(0)
                   
@@ -53,7 +53,7 @@ describe('Customer CSV File writer',()=>{
              const fileName = 'customers.csv';
         
         //Act
-              sut.execute(fileName,[customer])
+              sut.writeCustomers(fileName,[customer])
     
         //Assert
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(1)
@@ -85,7 +85,7 @@ describe('Customer CSV File writer',()=>{
             const fileName = 'customers.csv';
 
             //Act
-                sut.execute(fileName,customers)
+                sut.writeCustomers(fileName,customers)
 
             //Assert
 
@@ -110,7 +110,7 @@ describe('Customer CSV File writer',()=>{
             const lastCustomer = CustomerTestHelper.customers11[LAST_INDEX]
             
             //Act
-            sut.execute(fileName,CustomerTestHelper.customers11)
+            sut.writeCustomers(fileName,CustomerTestHelper.customers11)
       
             expect(mockFileWriter.writeLine)
             .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
