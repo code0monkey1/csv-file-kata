@@ -3,7 +3,6 @@ import { FileWriter } from "./FileWriter";
 
 class CustomerCsvFileWriter{
       
-       private fileCount=0
        
        constructor(private readonly fileWriter:FileWriter){}
        
