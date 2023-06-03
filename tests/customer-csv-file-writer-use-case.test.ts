@@ -130,9 +130,9 @@ describe('Customer CSV File writer',()=>{
             
             const fileName = 'customers.csv';
             
-            const  LAST_INDEX = 10
+            const  LAST_INDEX = CustomerTestHelper.customers20.length-1
 
-            const lastCustomer = CustomerTestHelper.customers11[LAST_INDEX]
+            const lastCustomer = CustomerTestHelper.customers20[LAST_INDEX]
             
             //Act
             sut.writeCustomersBatched(fileName,CustomerTestHelper.customers20)
