@@ -95,7 +95,7 @@ describe('Customer CSV File writer',()=>{
 
   })
 
-  describe("when entries are less than 10",()=>{
+  describe("writeCustomersBatched",()=>{
           
       test("If the customers are 11 , then the name of the last file will be `customers1.csv`",()=>{
             
@@ -105,7 +105,7 @@ describe('Customer CSV File writer',()=>{
             
             const fileName = 'customers.csv';
             
-            const  LAST_INDEX = CustomerTestHelper.customers11.length-1
+            const  LAST_INDEX = 10
 
             const lastCustomer = CustomerTestHelper.customers11[LAST_INDEX]
             
