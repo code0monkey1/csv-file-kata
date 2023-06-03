@@ -23,11 +23,11 @@ class CustomerCsvFileWriter{
                      if(i!=0 && i%10==0){
                          fileNumber++
                             
-                            this
-                            .fileWriter
-                            .writeLine(`${name}${fileNumber?fileNumber:''}${extension}`,
-                            this.formatAsCsvRow(customers[i]))
                       }
+                   this
+                     .fileWriter
+                     .writeLine(`${name}${fileNumber?fileNumber:''}${extension}`,
+                            this.formatAsCsvRow(customers[i]))
 
               }
               // customers
