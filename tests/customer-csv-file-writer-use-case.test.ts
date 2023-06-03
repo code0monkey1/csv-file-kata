@@ -2,6 +2,7 @@ import Customer from "../src/Customer";
 import CustomerTestHelper from "../src/CustomerTestHelper";
 import { FileWriter } from '../src/FileWriter';
 import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case";
+import csvFileWriter from "../src/utils/csvFileWriter";
 describe('Customer CSV File writer',()=>{
   
     describe('Null Customer',()=>{
@@ -113,7 +114,7 @@ describe('Customer CSV File writer',()=>{
 
    function assertCustomerWasWrittenToFile(fileWriter:FileWriter,fileName:string,customer:Customer){
          expect(fileWriter.writeLine)
-                    .toHaveBeenCalledWith(fileName,customer.toString())
+                    .toHaveBeenCalledWith(fileName,csvFileWriter.formatAsCsvRow(customer))
    }
 
    function assertCustomersWereWrittenToFile(fileWriter:FileWriter,fileName:string,customers:Customer[]){
