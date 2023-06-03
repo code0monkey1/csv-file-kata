@@ -83,5 +83,5 @@ describe('Customer CSV File writer',()=>{
 
    function assertCustomerWasWrittenToFile(fileWriter:FileWriter,fileName:string,customer:Customer){
          expect(fileWriter.writeLine)
-                    .toHaveBeenCalledWith("customers.csv",customer.toString())
+                    .toHaveBeenCalledWith(fileName,customer.toString())
    }
