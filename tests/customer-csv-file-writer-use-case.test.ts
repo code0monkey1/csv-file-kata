@@ -106,8 +106,10 @@ describe('Customer CSV File writer',()=>{
             const fileName = 'customers.csv';
             
             //Act
+            
+            sut.execute(fileName,CustomerTestHelper.customers11)
+            
              
-          
       })
 
   })
