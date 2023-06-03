@@ -112,7 +112,8 @@ describe('Customer CSV File writer',()=>{
             //Act
             sut.execute(fileName,CustomerTestHelper.customers11)
       
-            expect(mockFileWriter.writeLine).lastCalledWith('customers1.csv',lastCustomer)
+            expect(mockFileWriter.writeLine)
+            .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
             
       })
 
