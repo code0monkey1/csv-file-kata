@@ -160,7 +160,7 @@ describe('Customer CSV File writer',()=>{
             
             //Act
              
-        expect(()=>sut.writeCustomers(fileName,[customer])).toThrowError("File Extension Missing") 
+             expect(()=>sut.writeCustomersBatched(fileName,[customer])).toThrow("File Extension Missing") 
      }
 
 
