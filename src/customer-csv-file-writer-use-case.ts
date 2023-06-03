@@ -20,7 +20,7 @@ class CustomerCsvFileWriter{
                                 
        }
 
-       private formatAsCsvRow=(customer:Customer):string=>{
+       private  formatAsCsvRow=(customer:Customer):string=>{
            return `${customer.name},${customer.contactNumber}`
        }
        
