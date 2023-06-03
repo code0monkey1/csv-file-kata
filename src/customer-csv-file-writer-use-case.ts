@@ -21,9 +21,9 @@ class CustomerCsvFileWriter{
               for(let i=0;i<customers.length;i++){
                     
                      if(i!=0 && i%10==0){
-                         fileNumber++
-                            
+                            fileNumber++
                       }
+                      
                    this
                      .fileWriter
                      .writeLine(`${name}${fileNumber?fileNumber:''}${extension}`,
