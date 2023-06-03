@@ -4,6 +4,20 @@ import { FileWriter } from '../src/FileWriter';
 import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case";
 describe('Customer CSV File writer',()=>{
   
+    describe('Null Customer',()=>{
+         test("should throw ane exception",()=>{
+          //Arrange
+                const mockFileWriter:FileWriter=createFileWriter()
+        
+                const sut = createCsvFileWriter(mockFileWriter)
+
+                const fileName = 'customers.csv';
+        
+                //Act
+                expect(sut.execute(fileName,null!)).toThrow("customer is null")
+
+         })
+    })
    describe('No Customer',()=>{
 
              test("When no customers are present , no entries should be written",()=>{
