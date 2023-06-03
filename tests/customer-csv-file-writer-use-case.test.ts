@@ -154,12 +154,13 @@ describe('Customer CSV File writer',()=>{
             
             const sut = createCsvFileWriter(mockFileWriter)
             
-            const fileName = 'customers.csv';
+            const fileName = 'customers';
             
-            const lastCustomer = CustomerTestHelper.customers20.slice(0,9)
+            const customer = createCustomer("a","1")
             
             //Act
              
+            expect(()=>sut.writeCustomersBatched(fileName,[customer]))
       }
 
 
