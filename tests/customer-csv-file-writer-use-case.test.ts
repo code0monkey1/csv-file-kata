@@ -185,7 +185,8 @@ describe('Customer CSV File writer',()=>{
                     .toHaveBeenCalledWith(fileName,csvFileWriter.formatAsCsvRow(customer))
    }
 
-   function assertCustomersWereWrittenToFile(fileWriter:FileWriter,fileName:string,customers:Customer[]){
+   function assertCustomersWereWrittenToFile(
+    fileWriter:FileWriter,fileName:string,customers:Customer[]){
 
          customers.map( customer => assertCustomerWasWrittenToFile(fileWriter,fileName,customer))
         
