@@ -45,20 +45,24 @@ describe('Customer CSV File writer',()=>{
     
     ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customers,expected})=>{
             
-        //Arrange
-        
-        const mockFileWriter:FileWriter=createFileWriter()
-        
-        const sut = createCsvFileWriter(mockFileWriter)
-        //Act
-            sut.execute('customers.csv',customers)
+            //Arrange
+            
+            const mockFileWriter:FileWriter=createFileWriter()
+            
+            const sut = createCsvFileWriter(mockFileWriter)
+            //Act
+                sut.execute('customers.csv',customers)
 
-        //Assert
-            expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
+            //Assert
+                expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
 
-        
-            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",createCustomer("Chiranjeev",'001'))
-             
+            
+            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[0])
+            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[1])
+            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[2])
+            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[3])
+            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[4])
+            assertCustomerWasWrittenToFile(mockFileWriter,"customers.csv",customers[5])
            
     })
 
