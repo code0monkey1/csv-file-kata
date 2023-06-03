@@ -16,22 +16,25 @@ class CustomerCsvFileWriter{
                  throw new Error("argument is null : `customers`");
               }
               
-              customers.forEach(customer => 
-                                     this
-                                     .fileWriter
-                                     .writeLine(fileName,this.formatAsCsvRow(customer))
-                             )
-                                   
+             let fileNumber = 0
+              
+              for(let i=0;i<customers.length;i++){
+                    
+                     if(i!=0 && i%10==0){
+                            fileNumber++
+                      }
+                         
+                            this
+                            .fileWriter
+                            .writeLine(`${NAME}${fileNumber||''}${EXT}`,
+                                   this.formatAsCsvRow(customers[i]))
+
+              }
+                                
        }
 
        public writeCustomersBatched(fileName:string,customers:Customer[]){
-              
-               if(customers.length>10){
-                 this.writeCustomers("customers1.csv",customers)
-               }
-               else{
-                     this.writeCustomers("customers.csv",customers)
-               }
+               this.writeCustomers(fileName,customers)
        }
 
 

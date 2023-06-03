@@ -110,13 +110,13 @@ describe('Customer CSV File writer',()=>{
             const lastCustomer = CustomerTestHelper.customers11[LAST_INDEX]
             
             //Act
-            sut.writeCustomersBatched(fileName,CustomerTestHelper.customers11)
+            sut.writeCustomers(fileName,CustomerTestHelper.customers11)
       
             expect(mockFileWriter.writeLine)
             .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
             
             assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerTestHelper.customers11.slice(0,10))
-            assertCustomersWereWrittenToFile(mockFileWriter,'customers.csv',CustomerTestHelper.customers11.slice(10,))
+            assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',CustomerTestHelper.customers11.slice(10,))
 
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(CustomerTestHelper.customers11.length)
 
