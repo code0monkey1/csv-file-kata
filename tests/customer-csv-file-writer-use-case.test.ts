@@ -7,8 +7,8 @@ describe('Customer CSV File writer',()=>{
   describe("one customer",()=>{
         test.each([
     
-        {   customer:CustomerTestHelper.customers[0] },
-        {   customer:CustomerTestHelper.customers[0] }
+        { customer:createCustomer("chinu","001") },
+        { customer:createCustomer("jeevan",'002') }
     
     ])("for customer: $customer._name $customer._contactNumber",({customer})=>{
             
@@ -57,14 +57,8 @@ describe('Customer CSV File writer',()=>{
             //Assert
                 expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
 
+             assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers)
 
-            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[0])
-            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[1])
-            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[2])
-            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[3])
-            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[4])
-            assertCustomerWasWrittenToFile(mockFileWriter,fileName,customers[5])
-           
     })
 
   })
@@ -89,4 +83,8 @@ describe('Customer CSV File writer',()=>{
    function assertCustomerWasWrittenToFile(fileWriter:FileWriter,fileName:string,customer:Customer){
          expect(fileWriter.writeLine)
                     .toHaveBeenCalledWith(fileName,customer.toString())
+   }
+
+   function assertCustomersWereWrittenToFile(fileWriter:FileWriter,fileName:string,customers:Customer[]){
+        customers.map( customer => assertCustomerWasWrittenToFile(fileWriter,fileName,customer))
    }
