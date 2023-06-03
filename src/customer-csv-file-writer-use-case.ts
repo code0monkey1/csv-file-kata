@@ -24,7 +24,11 @@ class CustomerCsvFileWriter{
        public writeCustomersBatched(fileName:string,customers:Customer[]){
               
               const extensionIndex=fileName.lastIndexOf('.')
-               console.log("extension Index",extensionIndex)
+               
+              if(extensionIndex===-1){
+
+              }
+
               const baseFileName = fileName.slice(0, extensionIndex)
               
               const ext = fileName.slice(extensionIndex)
