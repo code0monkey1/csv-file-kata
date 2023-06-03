@@ -1,7 +1,7 @@
 import Customer from "../src/Customer"
+import CustomerTestHelper from "../src/CustomerTestHelper"
 import { FileWriter } from "../src/FileWriter"
 import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case"
-
 describe('Customer CSV File writer',()=>{
 
   describe("one customer",()=>{
@@ -35,18 +35,8 @@ describe('Customer CSV File writer',()=>{
         test.each([
     
         {
-        customers:[
-                     new Customer("Chiranjeev","007"), 
-                     new Customer("Chinu","001"),
-                     new Customer("Jeevan","007"), 
-                     new Customer("Zero","001")
-                    ],
-        expected:[
-                    "Chiranjeev,007",
-                    "Chinu,001",
-                    "Jeevan,007",
-                    "Zero,001"
-                ]
+        customers:CustomerTestHelper.customers,
+        expected:CustomerTestHelper.customers.map(customer => customer.toString())
             },
          {
         customers: [
