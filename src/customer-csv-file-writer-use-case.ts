@@ -26,6 +26,7 @@ class CustomerCsvFileWriter{
               const baseFileName = fileName.slice(0, fileName.lastIndexOf('.'))
               const ext = fileName.slice(fileName.lastIndexOf('.'))
               
+              
               const BATCH_SIZE = 10
 
               let fileCount = 0
