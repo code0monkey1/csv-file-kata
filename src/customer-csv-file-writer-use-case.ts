@@ -2,12 +2,10 @@ import Customer from "./Customer";
 import { FileWriter } from "./FileWriter";
 
 class CustomerCsvFileWriter{
-      
-       
+         
        constructor(private readonly fileWriter:FileWriter){}
-       
-       
-        public writeCustomers(fileName:string,customers:Customer[]){
+          
+       public writeCustomers(fileName:string,customers:Customer[]){
             
            if(customers===null)
                  throw new Error("argument is null : `customers`");
