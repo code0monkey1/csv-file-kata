@@ -95,6 +95,12 @@ describe('Customer CSV File writer',()=>{
 
   })
 
+  describe("when entries are less than 10",()=>{
+          
+      
+
+  })
+
 })
 
    function createFileWriter():FileWriter{
