@@ -15,12 +15,26 @@ class CustomerCsvFileWriter{
               
              let fileNumber = 0
               
-              customers
-                     .forEach(customer => 
-                                   this
-                                   .fileWriter
-                                   .writeLine(fileName,this.formatAsCsvRow(customer))
-                            )
+              for(let i=0;i<customers.length;i++){
+                    
+                     if(i!=0 && i%10==0){
+                         fileNumber++
+                            
+                            this
+                            .fileWriter
+                            .writeLine(`${fileName}${fileNumber?fileNumber:''}`,
+                            this.formatAsCsvRow(customers[i]))
+                      }
+
+              }
+              // customers
+              //        .forEach(customer => 
+
+                              
+              //                      this
+              //                      .fileWriter
+              //                      .writeLine(fileName,this.formatAsCsvRow(customer))
+              //               )
                                 
        }
 
