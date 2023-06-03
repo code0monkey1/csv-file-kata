@@ -22,14 +22,13 @@ class CustomerCsvFileWriter{
        }
 
        public writeCustomersBatched(fileName:string,customers:Customer[]){
-
-              const baseFileName = fileName.slice(0, fileName.lastIndexOf('.'))
-              const ext = fileName.slice(fileName.lastIndexOf('.'))
-              console.log("ext is",ext)
-              if(!ext){
-                     throw new Error("File Extension Missing")
-              }
               
+              const extensionIndex=fileName.lastIndexOf('.')
+               console.log("extension Index",extensionIndex)
+              const baseFileName = fileName.slice(0, extensionIndex)
+              
+              const ext = fileName.slice(extensionIndex)
+            
               const BATCH_SIZE = 10
 
               let fileCount = 0
