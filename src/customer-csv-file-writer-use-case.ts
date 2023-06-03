@@ -26,12 +26,12 @@ class CustomerCsvFileWriter{
               const extensionIndex=fileName.lastIndexOf('.')
                
               if(extensionIndex===-1){
-
+                throw new Error("File Extension Missing")
               }
 
-              const baseFileName = fileName.slice(0, extensionIndex)
+              const baseFileName = fileName.substring(0, extensionIndex)
               
-              const ext = fileName.slice(extensionIndex)
+              const ext = fileName.substring(extensionIndex)
             
               const BATCH_SIZE = 10
 
