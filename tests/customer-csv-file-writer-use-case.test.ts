@@ -97,9 +97,15 @@ describe('Customer CSV File writer',()=>{
 
   describe("when entries are less than 10",()=>{
           
-      test("Only 1 file needs to be created with all entries",()=>{
-         
-              
+      test("The starting file count is 0",()=>{
+            
+            const mockFileWriter:FileWriter=createFileWriter()
+            
+            const sut = createCsvFileWriter(mockFileWriter)
+            const fileName = 'customers.csv';
+            
+                   //Act
+             
           
       })
 

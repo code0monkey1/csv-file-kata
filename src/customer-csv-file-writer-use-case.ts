@@ -16,6 +16,7 @@ class CustomerCsvFileWriter{
 
               customers
                      .forEach(customer => 
+                                
                                    this
                                    .fileWriter
                                    .writeLine(fileName,this.formatAsCsvRow(customer)))
@@ -25,6 +26,8 @@ class CustomerCsvFileWriter{
        private  formatAsCsvRow=(customer:Customer):string=>{
            return `${customer.name},${customer.contactNumber}`
        }
+
+     
        
 
 }
