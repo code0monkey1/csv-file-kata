@@ -13,7 +13,6 @@ describe('Customer CSV File writer',()=>{
     ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customer,expected})=>{
             
         //Arrange
-    
             const mockFileWriter:FileWriter={
                 writeLine:jest.fn()
             }
