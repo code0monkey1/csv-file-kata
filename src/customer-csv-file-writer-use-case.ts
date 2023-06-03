@@ -8,6 +8,8 @@ class CustomerCsvFileWriter{
        
        
        public execute(fileName:string,customers:Customer[]){
+
+              console.log( fileName.slice(0, fileName.lastIndexOf('.')))
           
               if(customers===null){
                  throw new Error("argument is null : `customers`");
