@@ -5,6 +5,5 @@ function formatAsCsvRow(customer:Customer):string{
        }
 
 export default {
-
   formatAsCsvRow
 }
