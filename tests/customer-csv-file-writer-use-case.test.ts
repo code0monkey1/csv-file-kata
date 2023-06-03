@@ -3,7 +3,25 @@ import CustomerTestHelper from "../src/CustomerTestHelper";
 import { FileWriter } from '../src/FileWriter';
 import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case";
 describe('Customer CSV File writer',()=>{
+  
+   describe('No Customer',()=>{
 
+             test("When no customers are present , no entries should be written",()=>{
+                  
+                //Arrange
+                const mockFileWriter:FileWriter=createFileWriter()
+        
+                const sut = createCsvFileWriter(mockFileWriter)
+
+                const fileName = 'customers.csv';
+        
+                //Act
+                sut.execute(fileName,[])
+                    
+                expect(mockFileWriter.writeLine).toBeCalledTimes(0)
+                  
+             })
+   })
   describe("one customer",()=>{
         test.each([
     
