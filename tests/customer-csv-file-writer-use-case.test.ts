@@ -16,9 +16,11 @@ describe('Customer CSV File writer',()=>{
             const mockFileWriter:FileWriter=createFileWriter()
     
             const sut = createCsvFileWriter(mockFileWriter)
+
+             const fileName = 'customers.csv';
         
         //Act
-              sut.execute('customers.csv',[customer])
+              sut.execute(fileName,[customer])
     
         //Assert
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(1)
@@ -47,8 +49,10 @@ describe('Customer CSV File writer',()=>{
             const mockFileWriter:FileWriter=createFileWriter()
             
             const sut = createCsvFileWriter(mockFileWriter)
+            const fileName = 'customers.csv';
+
             //Act
-                sut.execute('customers.csv',customers)
+                sut.execute(fileName,customers)
 
             //Assert
                 expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
