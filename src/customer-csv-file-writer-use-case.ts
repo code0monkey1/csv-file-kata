@@ -12,7 +12,6 @@ class CustomerCsvFileWriter{
               const name =fileName.slice(0, fileName.lastIndexOf('.'))
               const extension = fileName.slice(fileName.lastIndexOf('.'))
               
-              console.log("name",name,"extension",extension)
               if(customers===null){
                  throw new Error("argument is null : `customers`");
               }
@@ -26,7 +25,7 @@ class CustomerCsvFileWriter{
                             
                             this
                             .fileWriter
-                            .writeLine(`${fileName}${fileNumber?fileNumber:''}`,
+                            .writeLine(`${name}${fileNumber?fileNumber:''}.${extension}`,
                             this.formatAsCsvRow(customers[i]))
                       }
 
