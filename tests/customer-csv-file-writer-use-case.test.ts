@@ -122,7 +122,7 @@ describe('Customer CSV File writer',()=>{
 
       })
 
-         test("If the customers are 20 , then the name of the last file will be `customers1.csv`",()=>{
+         test("If the customers are 26 , then the name of the last file will be `customers2.csv`",()=>{
             
             const mockFileWriter:FileWriter=createFileWriter()
             
@@ -141,7 +141,9 @@ describe('Customer CSV File writer',()=>{
             .lastCalledWith('customers2.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
             
             assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerTestHelper.customers20.slice(0,10))
-            assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',CustomerTestHelper.customers20.slice(10,))
+            assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',CustomerTestHelper.customers20.slice(10,20))
+
+            assertCustomersWereWrittenToFile(mockFileWriter,'customers2.csv',CustomerTestHelper.customers20.slice(20,))
 
             expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(CustomerTestHelper.customers20.length)
 
