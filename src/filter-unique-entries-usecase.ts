@@ -1,6 +1,5 @@
 class FilterUniqueEntries{
        private _set = new Set()
-       private _files:string[] = []
        
        constructor(){}
 
@@ -15,7 +14,7 @@ class FilterUniqueEntries{
                     this._set.add(entry)
                   }
               }
-              
+          return result  
         }
 
        }
