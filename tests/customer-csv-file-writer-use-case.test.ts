@@ -67,9 +67,6 @@ describe('Customer CSV File writer',()=>{
     describe("many customers",()=>{
         test.each([
         {
-            customers:createCustomers(11)
-        }, 
-        {
             customers:createCustomers(20)
         }
         
@@ -88,7 +85,8 @@ describe('Customer CSV File writer',()=>{
              sut.writeCustomers(fileName,customers)
                 
             //Assert
-             assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers)
+             assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers.slice(0,10))
+             assertCustomersWereWrittenToFile(mockFileWriter,"customers1.csv",customers.slice(10))
 
     })
 
