@@ -2,9 +2,11 @@
 import FileWriterHelper from '../tests/FileWriterHelper';
 import BatchedCustomerCsvFileWriter from './BatchedCustomerCsvFileWriter';
 import Customer from './Customer';
-class FilterUniqueEntries{
+import ICustomerFileWriter from './ICustomerFileWriter';
+
+class FilterUniqueEntries implements ICustomerFileWriter{
           
-           constructor(private readonly batchedCustomerCsvWriter:BatchedCustomerCsvFileWriter){}
+           constructor(private readonly customerFileWriter:ICustomerFileWriter){}
 
             public writeCustomers(fileName:string,customers:Customer[]){
                 
@@ -26,7 +28,7 @@ class FilterUniqueEntries{
                    }
               })
             
-              this.batchedCustomerCsvWriter.writeCustomers(fileName,uniqueCustomers)
+              this.customerFileWriter.writeCustomers(fileName,uniqueCustomers)
                 
            }
 
