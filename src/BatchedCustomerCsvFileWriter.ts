@@ -4,7 +4,7 @@ import CustomerCsvFileWriter from './customer-csv-file-writer-use-case';
 class BatchedCustomerCsvFileWriter implements ICustomerFileWriter{
 
        constructor(
-        private readonly customerCsvFileWriter:CustomerCsvFileWriter,
+        private readonly fileWriter:ICustomerFileWriter,
         private readonly batchSize:number){}
     
        public writeCustomers(fileName:string,customers:Customer[]){
@@ -31,7 +31,7 @@ class BatchedCustomerCsvFileWriter implements ICustomerFileWriter{
                     
                      const nextCustomers = customers.slice(i, i + this.batchSize);
                      
-                     this.customerCsvFileWriter.writeCustomers(nextFileName,nextCustomers)
+                     this.fileWriter.writeCustomers(nextFileName,nextCustomers)
 
                      fileCount++
               }
