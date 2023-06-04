@@ -5,7 +5,7 @@ import CustomerHelper from "./CustomerHelper"
 import FileWriterHelper from './FileWriterHelper'
 describe("Filter Unique Entries",()=>{
    
-   test("given entries of people , only unique entries are considered",()=>{
+   test("given entries of people , only unique entries are batched",()=>{
                  
                // Arrange
               
@@ -33,8 +33,7 @@ describe("Filter Unique Entries",()=>{
      
   })
 
-   test(" if persons array is null , then FilterUnique entries will throw error : `customers` is null ",()=>{
-                 
+   test(" if persons array is null , then FilterUnique for Batched entries will throw error : `customers` is null ",()=>{
                // Arrange
               
                 const mockFileWriter:FileWriter=FileWriterHelper.createFileWriter()
