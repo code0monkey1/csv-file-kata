@@ -226,10 +226,11 @@ describe('Customer CSV File writer',()=>{
                 //Act
                 sut.writeCustomers(fileName,customers)
                 
-                const fileCount=0
+                const fileCount=(customers.length/batchSize)-1
                 
                 //Assert
-                expect(mockFileWriter.writeLine).toHaveBeenLastCalledWith("customers1.csv",csvFileWriter.formatAsCsvRow(customers[customers.length-1]))
+                expect(mockFileWriter.writeLine)
+                .toHaveBeenLastCalledWith(`customers${fileCount}.csv`,csvFileWriter.formatAsCsvRow(customers[customers.length-1]))
                 
                 expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
         })
