@@ -66,12 +66,12 @@ describe('Customer CSV File writer',()=>{
 
     describe("many customers",()=>{
         test.each([
-        {
-            customers:createCustomers(9)
-        }, 
         // {
-        //     customers:createCustomers(20)
-        // }
+        //     customers:createCustomers(9)
+        // }, 
+        {
+            customers:createCustomers(20)
+        }
         
     ])("for customer: $customer._name $customer._contactNumber",({customers})=>{
             
@@ -200,7 +200,7 @@ describe('Customer CSV File writer',()=>{
         const customers=[]
 
         for(let i=0;i<numberOfCustomers;i++){
-            customers.push(createCustomer(i.toString(),i.toString()))
+            customers.push(createCustomer((i).toString(),(i).toString()))
         }
 
         return customers
