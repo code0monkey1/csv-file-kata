@@ -16,5 +16,6 @@ import Customer from "../src/Customer"
    }
 
 export default {
-  createCustomers
+  createCustomers,
+  createCustomer
 }
