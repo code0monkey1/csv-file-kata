@@ -1,21 +1,12 @@
+import BatchedCustomerCsvFileWriter from './BatchedCustomerCsvFileWriter';
 class FilterUniqueEntries{
-       private _set = new Set()
-       
-       constructor(){}
+          
+           constructor(private readonly batchedCustomerCsvWriter:BatchedCustomerCsvFileWriter){}
 
-       public execute( entries:string[]){
-         
-          const result=[]
-                 
-          for( let entry of entries){
+           public execute(){
 
-                if (!this._set.has(entry)){  
-                    result.push(entry)
-                    this._set.add(entry)
-                  }
-              }
-          return result  
-        }
+
+           }
 
        }
 export default FilterUniqueEntries

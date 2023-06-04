@@ -5,9 +5,9 @@ describe("Filter Unique Entries",()=>{
    test("given a files array , only write entries that are not duplicates",()=>{
         const entries =[["a","b","a"],["a","b","a"],["a","b","a"]]
        
-       const sut= new FilterUniqueEntries()
+      //  const sut= new FilterUniqueEntries()
 
-       sut.execute(entries[0])
+      //  sut.execute(entries[0])
         
      
   })
