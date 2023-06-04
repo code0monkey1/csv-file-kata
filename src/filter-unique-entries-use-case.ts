@@ -7,21 +7,21 @@ export default class FilterUniqueEntries implements ICustomerFileWriter{
 
             public writeCustomers(fileName:string,customers:Customer[]){
                 
-              const customerSet = new Set<string>()
-               
-              const uniqueCustomers:Customer[] =[]
-
               if(customers === null){
                 throw new Error('`customers` is null')
               }
 
-              customers.forEach( customer =>{ 
+               
+              const uniqueCustomers:Customer[] =customers.filter((cust,index,array)=> array.findIndex(customer => cust.name===customer.name )===index)
+
+
+              // customers.forEach( customer =>{ 
               
-                   if(!customerSet.has(customer.name)){
-                        uniqueCustomers.push(customer)
-                        customerSet.add(customer.name)
-                   }
-              })
+              //      if(!customerSet.has(customer.name)){
+              //           uniqueCustomers.push(customer)
+              //           customerSet.add(customer.name)
+              //      }
+              // })
             
               this.customerFileWriter.writeCustomers(fileName,uniqueCustomers)
                 
