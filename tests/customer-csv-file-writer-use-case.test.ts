@@ -1,5 +1,4 @@
 import Customer from "../src/Customer";
-// import CustomerTestHelper from "../src/CustomerTestHelper";
 import { FileWriter } from '../src/FileWriter';
 import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case";
 import csvFileWriter from "../src/utils/csvFileWriter";
