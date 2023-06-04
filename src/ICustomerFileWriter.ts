@@ -1,6 +1,6 @@
 import Customer from "./Customer";
 
-interface ICustomerFileWriter{
+export default interface ICustomerFileWriter{
 
    writeCustomers(fileName:string,customers:Customer[]):void
 
