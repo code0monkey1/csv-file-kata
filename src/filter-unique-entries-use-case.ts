@@ -3,7 +3,7 @@ import FileWriterHelper from '../tests/FileWriterHelper';
 import Customer from './Customer';
 import ICustomerFileWriter from './ICustomerFileWriter';
 
-class FilterUniqueEntries implements ICustomerFileWriter{
+export default class FilterUniqueEntries implements ICustomerFileWriter{
           
            constructor(private readonly customerFileWriter:ICustomerFileWriter){}
 
@@ -32,4 +32,3 @@ class FilterUniqueEntries implements ICustomerFileWriter{
            }
 
        }
-export default FilterUniqueEntries
