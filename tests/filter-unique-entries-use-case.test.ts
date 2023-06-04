@@ -30,11 +30,12 @@ describe("Filter Unique Entries",()=>{
               // Apply
 
                 sut.writeCustomers(fileName,customers)
-
-                
+          
                 expect(mockFileWriter.writeLine).toBeCalledTimes(2)
 
-                CustomerHelper.assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers)
+                CustomerHelper
+                .assertCustomersWereWrittenToFile(mockFileWriter,fileName,
+                  [CustomerHelper.createCustomer("1","1"),CustomerHelper.createCustomer("2","1")])
      
   })
 
