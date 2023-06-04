@@ -209,10 +209,10 @@ describe('Customer CSV File writer',()=>{
            
           test.each([
     
-                { batchSize:10 ,customers:createCustomers(20)},
-                { batchSize:25 ,customers:createCustomers(50)}
+                { batchSize:10 ,customers:createCustomers(250)},
+                { batchSize:25 ,customers:createCustomers(414)}
             
-            ])("for the batch size $batchSize and customers $customers.length , we will have 2 files",({batchSize,customers})=>{
+            ])("for the batch size $batchSize and customers $customers.length , we will have multiple files",({batchSize,customers})=>{
                
                 //Arrange
                 const mockFileWriter:FileWriter=createFileWriter()
