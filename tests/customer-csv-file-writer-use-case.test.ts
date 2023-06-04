@@ -79,14 +79,15 @@ describe('Customer CSV File writer',()=>{
             
             const mockFileWriter:FileWriter=createFileWriter()
             
-            const sut = createCsvFileWriter(mockFileWriter)
+            const csvFileWriter = createCsvFileWriter(mockFileWriter)
             
-            const batched= new BatchedCustomerCsvFileWriter(sut)
+            const sut= new BatchedCustomerCsvFileWriter(csvFileWriter)
+
             const fileName = 'customers.csv';
 
             //Act
                 sut.writeCustomers(fileName,customers)
-
+                
             //Assert
              assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers)
 
