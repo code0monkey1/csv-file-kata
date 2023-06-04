@@ -1,5 +1,3 @@
-
-import FileWriterHelper from '../tests/FileWriterHelper';
 import Customer from './Customer';
 import ICustomerFileWriter from './ICustomerFileWriter';
 
@@ -18,12 +16,10 @@ export default class FilterUniqueEntries implements ICustomerFileWriter{
               }
 
               customers.forEach( customer =>{ 
-                       
-                   const csvEntry =  FileWriterHelper.formatAsCsvRow(customer)
-
-                   if(!customerSet.has(csvEntry)){
+              
+                   if(!customerSet.has(customer.name)){
                         uniqueCustomers.push(customer)
-                        customerSet.add(csvEntry)
+                        customerSet.add(customer.name)
                    }
               })
             
