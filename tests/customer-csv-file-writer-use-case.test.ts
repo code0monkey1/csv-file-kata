@@ -1,6 +1,6 @@
 import BatchedCustomerCsvFileWriter from "../src/BatchedCustomerCsvFileWriter";
 import Customer from "../src/Customer";
-import { FileWriter } from '../src/FileWriter';
+import { FileWriter } from "../src/FileWriter";
 import CustomerCsvFileWriter from '../src/customer-csv-file-writer-use-case';
 import csvFileWriter from "../src/utils/csvFileWriter";
 describe('Customer CSV File writer',()=>{
