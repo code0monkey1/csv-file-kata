@@ -1,6 +1,5 @@
 import BatchedCustomerCsvFileWriter from "../src/BatchedCustomerCsvFileWriter"
 import { FileWriter } from "../src/FileWriter"
-
 import FilterUniqueEntries from "../src/filter-unique-entries-use-case"
 import CustomerHelper from "./CustomerHelper"
 import FileWriterHelper from './FileWriterHelper'
