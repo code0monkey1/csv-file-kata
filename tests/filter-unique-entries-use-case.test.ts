@@ -99,16 +99,21 @@ describe("Filter Unique Entries",()=>{
                 batchedFiles.writeCustomers(fileName,[
                   CustomerHelper.createCustomer("a","1"),
                   CustomerHelper.createCustomer("a","2"),
-                  CustomerHelper.createCustomer("a","1"),
-                  CustomerHelper.createCustomer("a","1")
+                  CustomerHelper.createCustomer("b","1"),
+                  CustomerHelper.createCustomer("b","2")
                 ]
                   )
 
-                sut.writeCustomers(fileName,CustomerHelper.createCustomers(3))
+                sut.writeCustomers(fileName,[
+                  CustomerHelper.createCustomer("a","1"),
+                  CustomerHelper.createCustomer("a","2"),
+                  CustomerHelper.createCustomer("b","1"),
+                  CustomerHelper.createCustomer("a","2")
+                ])
                 
                 // Assert
 
-                expect(mockFileWriter.writeLine).toBeCalledTimes(3)
+                expect(mockFileWriter.writeLine).toBeCalledTimes(6)
       
     })
   }
