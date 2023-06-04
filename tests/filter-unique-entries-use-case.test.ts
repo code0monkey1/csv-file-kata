@@ -80,7 +80,7 @@ describe("Filter Unique Entries",()=>{
       
     })
 
-        test("the unique contacts should be included but all files should be written to debug files of bach 20",()=>{
+        test("the unique contacts should be included, but all files should be written to debug files of bach 20",()=>{
 
                // Arrange
                
@@ -88,15 +88,15 @@ describe("Filter Unique Entries",()=>{
         
                 const customerCsvFileWriter = FileWriterHelper.createCsvFileWriter(mockFileWriter)
                  
-                const batchedFiles = new BatchedCustomerCsvFileWriter(customerCsvFileWriter,20)
+                const debugFiles = new BatchedCustomerCsvFileWriter(customerCsvFileWriter,20)
 
-                const sut = new FilterUniqueEntries(batchedFiles)
+                const sut = new FilterUniqueEntries(debugFiles)
                 
                 const fileName = 'customers.csv';
 
                 // Apply
 
-                batchedFiles.writeCustomers(fileName,[
+                debugFiles.writeCustomers(fileName,[
                   CustomerHelper.createCustomer("a","1"),
                   CustomerHelper.createCustomer("a","2"),
                   CustomerHelper.createCustomer("b","1"),
