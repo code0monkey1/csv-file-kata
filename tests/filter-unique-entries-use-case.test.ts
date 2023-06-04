@@ -29,6 +29,9 @@ describe("Filter Unique Entries",()=>{
 
                 sut.writeCustomers(fileName,customers)
 
+                CustomerHelper
+                 .assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerHelper.createCustomers(10))
+                
                 expect(mockFileWriter.writeLine).toBeCalledTimes(10)
      
   })
