@@ -1,6 +1,6 @@
 import Customer from "../src/Customer"
 import { FileWriter } from "../src/FileWriter"
-import FileWriterHelper from "./FileWriterHelper"
+import FileWriterHelper from "./FileWriterTestHelper"
 
  function createCustomers(numberOfCustomers:number){
         const customers=[]

@@ -1,8 +1,8 @@
 import BatchedCustomerCsvFileWriter from "../src/BatchedCustomerCsvFileWriter"
 import { FileWriter } from "../src/FileWriter"
 import FilterUniqueEntries from "../src/filter-unique-entries-use-case"
-import CustomerHelper from "./CustomerHelper"
-import FileWriterHelper from './FileWriterHelper'
+import CustomerHelper from "./CustomerTestHelper"
+import FileWriterHelper from './FileWriterTestHelper'
 describe("Filter Unique Entries",()=>{
    
    test("given 4 entries of people ,with 2 having same names, only first unique entries are batched",()=>{
