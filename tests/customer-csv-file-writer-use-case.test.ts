@@ -128,7 +128,9 @@ describe('Customer CSV File writer',()=>{
             
             const mockFileWriter:FileWriter=createFileWriter()
             
-            const sut = createCsvFileWriter(mockFileWriter)
+            const customerCsvFileWriter = createCsvFileWriter(mockFileWriter)
+
+            const sut = new BatchedCustomerCsvFileWriter(customerCsvFileWriter)
             
             const fileName = 'customers.csv';
             
@@ -138,7 +140,7 @@ describe('Customer CSV File writer',()=>{
             const lastCustomer = customers[LAST_INDEX]
             
             //Act
-            sut.writeCustomersBatched(fileName,customers)
+            sut.writeCustomers(fileName,customers)
       
             expect(mockFileWriter.writeLine)
             .lastCalledWith('customers2.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
