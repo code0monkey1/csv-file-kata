@@ -1,3 +1,5 @@
+
+import FileWriterHelper from '../tests/FileWriterHelper';
 import BatchedCustomerCsvFileWriter from './BatchedCustomerCsvFileWriter';
 import Customer from './Customer';
 class FilterUniqueEntries{
@@ -10,7 +12,7 @@ class FilterUniqueEntries{
 
               customers.forEach( customer =>{
                        
-                   const csvEntry = 
+                   const csvEntry =  FileWriterHelper.formatAsCsvRow(customer)
               })
             
               this.batchedCustomerCsvWriter.writeCustomers(fileName,customers)
