@@ -12,7 +12,7 @@ describe("Filter Unique Entries",()=>{
               
                 const mockFileWriter:FileWriter=FileWriterHelper.createFileWriter()
         
-                const customerCsvFileWriter =FileWriterHelper. createCsvFileWriter(mockFileWriter)
+                const customerCsvFileWriter = FileWriterHelper. createCsvFileWriter(mockFileWriter)
 
                 const batchedCustomerCsvFileWriter = new BatchedCustomerCsvFileWriter(customerCsvFileWriter,10)
                  
@@ -20,13 +20,21 @@ describe("Filter Unique Entries",()=>{
                 
                 const fileName = 'customers.csv';
 
-                const customers = CustomerHelper.createCustomers(20)
+                const customers = [
+                    
+                      CustomerHelper.createCustomer("a","1"),
+                      CustomerHelper.createCustomer('a',"1"),
+                      CustomerHelper.createCustomer("b","2"),
+                      CustomerHelper.createCustomer("a","1"),
+                      CustomerHelper.createCustomer('a',"1"),
+                      CustomerHelper.createCustomer("b","2")
+                ]
 
               // Apply
 
                 sut.writeCustomers(fileName,customers)
 
-                expect(mockFileWriter.writeLine).toBeCalledTimes(20)
+                expect(mockFileWriter.writeLine).toBeCalledTimes(2)
      
   })
   }
