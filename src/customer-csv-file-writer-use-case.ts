@@ -1,7 +1,8 @@
 import Customer from "./Customer";
 import { FileWriter } from "./FileWriter";
+import ICustomerFileWriter from "./ICustomerFileWriter";
 
-class CustomerCsvFileWriter{
+class CustomerCsvFileWriter implements ICustomerFileWriter{
          
        constructor(private readonly fileWriter:FileWriter){}
           
@@ -15,7 +16,6 @@ class CustomerCsvFileWriter{
                             )
                                 
        }
-
 
        private  formatAsCsvRow=(customer:Customer):string=>{
            return `${customer.name},${customer.contactNumber}`

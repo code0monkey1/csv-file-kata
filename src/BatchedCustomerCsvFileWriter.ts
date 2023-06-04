@@ -3,7 +3,9 @@ import ICustomerFileWriter from './ICustomerFileWriter';
 import CustomerCsvFileWriter from './customer-csv-file-writer-use-case';
 class BatchedCustomerCsvFileWriter implements ICustomerFileWriter{
 
-       constructor(private readonly customerCsvFileWriter:CustomerCsvFileWriter,private readonly batchSize:number){}
+       constructor(
+        private readonly customerCsvFileWriter:CustomerCsvFileWriter,
+        private readonly batchSize:number){}
     
        public writeCustomers(fileName:string,customers:Customer[]){
                            
