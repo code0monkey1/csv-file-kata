@@ -12,7 +12,9 @@ export default class FilterUniqueEntries implements ICustomerFileWriter{
               }
 
                
-              const uniqueCustomers:Customer[] =customers.filter((cust,index,array)=> array.findIndex(customer => cust.name===customer.name )===index)
+              const uniqueCustomers:Customer[] =customers
+                                                .filter((cust,index,array)=> array
+                                                  .findIndex(customer => cust.name===customer.name )===index)
 
 
               // customers.forEach( customer =>{ 
