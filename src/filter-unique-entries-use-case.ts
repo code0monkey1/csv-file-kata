@@ -1,6 +1,5 @@
 
 import FileWriterHelper from '../tests/FileWriterHelper';
-import BatchedCustomerCsvFileWriter from './BatchedCustomerCsvFileWriter';
 import Customer from './Customer';
 import ICustomerFileWriter from './ICustomerFileWriter';
 
