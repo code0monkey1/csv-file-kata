@@ -34,7 +34,9 @@ describe("Filter Unique Entries",()=>{
                 
                 expect(mockFileWriter.writeLine).toBeCalledTimes(11)
 
-                expect(mockFileWriter.writeLine).toHaveBeenCalledWith('customers1.csv',CustomerHelper.createCustomers(11)[10])
+                expect(mockFileWriter.writeLine)
+                .toHaveBeenCalledWith('customers1.csv', 
+                      FileWriterHelper.formatAsCsvRow(CustomerHelper.createCustomers(11)[10]))
      
   })
 
