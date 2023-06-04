@@ -88,15 +88,15 @@ describe("Filter Unique Entries",()=>{
         
                 const customerCsvFileWriter = FileWriterHelper.createCsvFileWriter(mockFileWriter)
                  
-                const debugFiles = new BatchedCustomerCsvFileWriter(customerCsvFileWriter,20)
+                const debugWriter = new BatchedCustomerCsvFileWriter(customerCsvFileWriter,15000)
 
-                const sut = new FilterUniqueEntries(debugFiles)
+                const sut = new FilterUniqueEntries(debugWriter)
                 
                 const fileName = 'customers.csv';
 
                 // Apply
 
-                debugFiles.writeCustomers(fileName,[
+                debugWriter.writeCustomers(fileName,[
                   CustomerHelper.createCustomer("a","1"),
                   CustomerHelper.createCustomer("a","2"),
                   CustomerHelper.createCustomer("b","1"),
