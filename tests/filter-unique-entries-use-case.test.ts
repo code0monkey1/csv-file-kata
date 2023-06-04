@@ -34,7 +34,7 @@ describe("Filter Unique Entries",()=>{
      
   })
 
-   test("given an files array , only write entries that are not duplicates",()=>{
+   test(" if persons array is null , then FilterUnique entries will throw error : `persons` is null ",()=>{
                  
                // Arrange
               
