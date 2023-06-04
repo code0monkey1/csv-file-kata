@@ -157,6 +157,37 @@ describe('Customer CSV File writer',()=>{
 
       })
 
+        test("If the customers are 17,000  , then the name of the last file will be `customers2.csv`",()=>{
+            
+            const mockFileWriter:FileWriter=createFileWriter()
+            
+            const customerCsvFileWriter = createCsvFileWriter(mockFileWriter)
+
+            const sut = new BatchedCustomerCsvFileWriter(customerCsvFileWriter,15000)
+            
+            const fileName = 'customers.csv';
+            
+            const customers = createCustomers(17000)
+            const  LAST_INDEX = customers.length-1
+
+            const lastCustomer = customers[LAST_INDEX]
+            
+            //Act
+            sut.writeCustomers(fileName,customers)
+      
+            expect(mockFileWriter.writeLine)
+            .lastCalledWith('customers2.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
+            
+            assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers.slice(0,15000))
+            assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',customers.slice(15000,))
+
+            // assertCustomersWereWrittenToFile(mockFileWriter,'customers2.csv',customers.slice(20,))
+
+            expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
+
+      })
+
+
       test("If file extension is missing , an error is thrown `File Extension Missing`",()=>{   
             //Arrange
             const mockFileWriter:FileWriter=createFileWriter()
