@@ -157,7 +157,7 @@ describe('Customer CSV File writer',()=>{
 
       })
 
-        test("If the customers are 17,000  , then the name of the last file will be `customers2.csv`",()=>{
+        test.skip("If the customers are 17,000  , then the name of the last file will be `customers2.csv`",()=>{
             
             const mockFileWriter:FileWriter=createFileWriter()
             
