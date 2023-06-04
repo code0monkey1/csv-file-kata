@@ -127,7 +127,7 @@ describe('Customer CSV File writer',()=>{
 
       })
 
-         test("If the customers are 26 , then the name of the last file will be `customers2.csv`",()=>{
+     test("If the customers are 26 , then the name of the last file will be `customers2.csv`",()=>{
             
             const mockFileWriter:FileWriter=createFileWriter()
             
@@ -204,7 +204,13 @@ describe('Customer CSV File writer',()=>{
             expect(()=>sut.writeCustomers(fileName,[customer])).toThrow("File Extension Missing") 
      })
 
+     describe("Works for multiple batch sizes",()=>{
+           
+
      })
+
+     })
+
 
 })
 
