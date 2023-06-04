@@ -97,6 +97,7 @@ describe('Customer CSV File writer',()=>{
           
       test("If the customers are 11 , then the name of the last file will be `customers1.csv`",()=>{
             
+            //Arrange
             const mockFileWriter:FileWriter=createFileWriter()
             
             const sut = createCsvFileWriter(mockFileWriter)
@@ -109,7 +110,8 @@ describe('Customer CSV File writer',()=>{
             
             //Act
             sut.writeCustomersBatched(fileName,customers)
-      
+            
+            //Assert
             expect(mockFileWriter.writeLine)
             .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
             
