@@ -209,9 +209,9 @@ describe('Customer CSV File writer',()=>{
            
           test.each([
     
-            { batchSize:10 ,customers:createCustomers(20)},
-            { batchSize:25 ,customers:createCustomers(50)}
-        
+                { batchSize:10 ,customers:createCustomers(20)},
+                { batchSize:25 ,customers:createCustomers(50)}
+            
             ])("for the batch size $batchSize and customers $customers.length , we will have 2 files",({batchSize,customers})=>{
                
                 //Arrange
@@ -226,9 +226,12 @@ describe('Customer CSV File writer',()=>{
                 //Act
                 sut.writeCustomers(fileName,customers)
                 
+                const fileCount=0
+                
                 //Assert
                 expect(mockFileWriter.writeLine).toHaveBeenLastCalledWith("customers1.csv",csvFileWriter.formatAsCsvRow(customers[customers.length-1]))
-                // expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(batchSize)
+                
+                expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
         })
 
      })
