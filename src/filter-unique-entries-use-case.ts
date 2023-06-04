@@ -11,7 +11,7 @@ export default class FilterUniqueEntries implements ICustomerFileWriter{
                 throw new Error('`customers` is null')
               }
 
-               
+              // getting only the element with the first index match , ignoring further index matches
               const uniqueCustomers:Customer[] =customers
                                                 .filter((cust,index,array)=> array
                                                   .findIndex(customer => cust.name===customer.name )===index)
