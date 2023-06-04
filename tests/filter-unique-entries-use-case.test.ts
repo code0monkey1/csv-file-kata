@@ -33,7 +33,7 @@ describe("Filter Unique Entries",()=>{
      
   })
 
-   test(" if persons array is null , then FilterUnique for Batched entries will throw error : `customers` is null ",()=>{
+   test("if persons array is null , then FilterUnique for Batched entries will throw error : `customers` is null ",()=>{
                // Arrange
               
                 const mockFileWriter:FileWriter=FileWriterHelper.createFileWriter()
