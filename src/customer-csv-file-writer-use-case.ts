@@ -19,7 +19,7 @@ class CustomerCsvFileWriter{
                                 
        }
 
-       public writeCustomersBatched(fileName:string,customers:Customer[]){
+       public _writeCustomersBatched(fileName:string,customers:Customer[]){
               
               const extIndex=fileName.lastIndexOf('.')
               
