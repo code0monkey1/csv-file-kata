@@ -66,11 +66,12 @@ describe('Customer CSV File writer',()=>{
 
     describe("many customers",()=>{
         test.each([
-    
         {
-            customers:CustomerTestHelper.customers,
-    
+            customers:createCustomers(9)
+        }, {
+            customers:createCustomers(20)
         },
+        
         
         
     
