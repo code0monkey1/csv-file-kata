@@ -2,7 +2,7 @@ import Customer from "../src/Customer"
 import { FileWriter } from "../src/FileWriter"
 import FileWriterHelper from "./FileWriterTestHelper"
 
- function createCustomers(numberOfCustomers:number){
+ export function createCustomers(numberOfCustomers:number){
         const customers=[]
 
         for(let i=0;i<numberOfCustomers;i++){
@@ -13,16 +13,16 @@ import FileWriterHelper from "./FileWriterTestHelper"
    }
 
      // to remove the constructor details 
-   function createCustomer(name:string,contactNumber:string):Customer{
+   export function createCustomer(name:string,contactNumber:string):Customer{
      return  new Customer(name,contactNumber)
    }
 
-  function assertCustomerWasWrittenToFile(fileWriter:FileWriter,fileName:string,customer:Customer){
+  export function assertCustomerWasWrittenToFile(fileWriter:FileWriter,fileName:string,customer:Customer){
          expect(fileWriter.writeLine)
                     .toHaveBeenCalledWith(fileName,FileWriterHelper.formatAsCsvRow(customer))
    }
 
-   function assertCustomersWereWrittenToFile(fileWriter:FileWriter,fileName:string,customers:Customer[]){
+   export function assertCustomersWereWrittenToFile(fileWriter:FileWriter,fileName:string,customers:Customer[]){
 
          customers.map( customer => assertCustomerWasWrittenToFile(fileWriter,fileName,customer))
         
