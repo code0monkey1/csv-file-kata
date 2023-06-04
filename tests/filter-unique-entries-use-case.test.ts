@@ -21,8 +21,8 @@ describe("Filter Unique Entries",()=>{
 
                 const customers = [
                   
-                      ...CustomerHelper.createCustomers(10),
-                      ...CustomerHelper.createCustomers(10)
+                      ...CustomerHelper.createCustomers(11),
+                      ...CustomerHelper.createCustomers(11)
                 ]
 
               // Apply
@@ -32,7 +32,9 @@ describe("Filter Unique Entries",()=>{
                 CustomerHelper
                  .assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerHelper.createCustomers(10))
                 
-                expect(mockFileWriter.writeLine).toBeCalledTimes(10)
+                expect(mockFileWriter.writeLine).toBeCalledTimes(11)
+
+                expect(mockFileWriter.writeLine).toHaveBeenCalledWith('customers1.csv',CustomerHelper.createCustomers(11)[10])
      
   })
 
