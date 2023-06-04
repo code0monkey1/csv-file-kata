@@ -1,7 +1,7 @@
 import BatchedCustomerCsvFileWriter from "../src/BatchedCustomerCsvFileWriter";
 import Customer from "../src/Customer";
 import { FileWriter } from '../src/FileWriter';
-import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case";
+import CustomerCsvFileWriter from '../src/customer-csv-file-writer-use-case';
 import csvFileWriter from "../src/utils/csvFileWriter";
 describe('Customer CSV File writer',()=>{
   
@@ -99,8 +99,10 @@ describe('Customer CSV File writer',()=>{
             //Arrange
             const mockFileWriter:FileWriter=createFileWriter()
             
-            const sut = createCsvFileWriter(mockFileWriter)
+            const customerCsvFileWriter = createCsvFileWriter(mockFileWriter)
             
+            const sut = new BatchedCustomerCsvFileWriter(customerCsvFileWriter)
+
             const fileName = 'customers.csv';
             
             const  LAST_INDEX = 10
@@ -109,7 +111,7 @@ describe('Customer CSV File writer',()=>{
             
             //Act
 
-            sut.writeCustomersBatched(fileName,customers)
+            sut.writeCustomers(fileName,customers)
             
             //Assert
             expect(mockFileWriter.writeLine)
