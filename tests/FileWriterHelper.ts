@@ -1,3 +1,4 @@
+import Customer from "../src/Customer"
 import { FileWriter } from "../src/FileWriter"
 import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case"
 
@@ -11,7 +12,13 @@ import CustomerCsvFileWriter from "../src/customer-csv-file-writer-use-case"
         return new CustomerCsvFileWriter(fileWriter)
    }
 
+
+ function formatAsCsvRow(customer:Customer):string{
+           return `${customer.name},${customer.contactNumber}`
+       }
+
    export default{
     createCsvFileWriter,
-    createFileWriter
+    createFileWriter,
+    formatAsCsvRow
    }

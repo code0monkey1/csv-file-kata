@@ -8,7 +8,10 @@ class FilterUniqueEntries{
                 
               const customerSet = new Set<string>()
 
-              
+              customers.forEach( customer =>{
+                       
+                   const csvEntry = 
+              })
             
               this.batchedCustomerCsvWriter.writeCustomers(fileName,customers)
                 
