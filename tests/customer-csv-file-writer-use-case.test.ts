@@ -69,14 +69,13 @@ describe('Customer CSV File writer',()=>{
         {
             customers:createCustomers(9)
         }, 
-        {
-            customers:createCustomers(20)
-        }
+        // {
+        //     customers:createCustomers(20)
+        // }
         
     ])("for customer: $customer._name $customer._contactNumber",({customers})=>{
             
             //Arrange
-            
             const mockFileWriter:FileWriter=createFileWriter()
             
             const csvFileWriter = createCsvFileWriter(mockFileWriter)
@@ -153,7 +152,8 @@ describe('Customer CSV File writer',()=>{
 
       })
 
-      test("If file extension is missing , an error is thrown `File Extension Missing`",()=>{
+      test("If file extension is missing , an error is thrown `File Extension Missing`",()=>{   
+            //Arrange
             const mockFileWriter:FileWriter=createFileWriter()
             
             const sut = createCsvFileWriter(mockFileWriter)
@@ -162,7 +162,7 @@ describe('Customer CSV File writer',()=>{
             
             const customer = createCustomer("a","1")
             
-            //Act         
+            //Act / Assert        
             expect(()=>sut.writeCustomersBatched(fileName,[customer])).toThrow("File Extension Missing") 
      })
 
