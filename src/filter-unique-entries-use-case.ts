@@ -6,10 +6,10 @@ class FilterUniqueEntries{
 
             public writeCustomers(fileName:string,customers:Customer[]){
                 
-              const uniqueCustomers = new Set()
+              const customerSet = new Set<string>()
 
               
-              
+            
               this.batchedCustomerCsvWriter.writeCustomers(fileName,customers)
                 
 
