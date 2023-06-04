@@ -69,12 +69,12 @@ describe('Customer CSV File writer',()=>{
     
         {
             customers:CustomerTestHelper.customers,
-            expected:CustomerTestHelper.customerSignatures
+    
         },
         
         
     
-    ])("for customer: $customer._name $customer._contactNumber , expected: $expected",({customers})=>{
+    ])("for customer: $customer._name $customer._contactNumber",({customers})=>{
             
             //Arrange
             
