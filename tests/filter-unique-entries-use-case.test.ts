@@ -5,7 +5,7 @@ import CustomerHelper from "./CustomerHelper"
 import FileWriterHelper from './FileWriterHelper'
 describe("Filter Unique Entries",()=>{
    
-   test("given entries of people , only unique entries are batched",()=>{
+   test("given 4 entries of people ,with 2 having same names, only first unique entries are batched",()=>{
                  
                // Arrange
               
