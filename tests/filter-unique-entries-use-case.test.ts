@@ -7,9 +7,10 @@ describe("Filter Unique Entries",()=>{
         
         for( let entry of entries){
            
-          if (!mySet.has(entry)){
-               result.push(entry)
-            }
+            if (!mySet.has(entry)){  
+                result.push(entry)
+                mySet.add(entry)
+              }
         }
          expect(result.length).toBe(2)
 
