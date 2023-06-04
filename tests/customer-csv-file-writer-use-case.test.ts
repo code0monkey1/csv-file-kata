@@ -129,22 +129,23 @@ describe('Customer CSV File writer',()=>{
             
             const fileName = 'customers.csv';
             
-            const  LAST_INDEX = CustomerTestHelper.customers20.length-1
+            const customers = createCustomers(20)
+            const  LAST_INDEX = customers.length-1
 
-            const lastCustomer = CustomerTestHelper.customers20[LAST_INDEX]
+            const lastCustomer = customers[LAST_INDEX]
             
             //Act
-            sut.writeCustomersBatched(fileName,CustomerTestHelper.customers20)
+            sut.writeCustomersBatched(fileName,customers)
       
             expect(mockFileWriter.writeLine)
             .lastCalledWith('customers2.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
             
-            assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerTestHelper.customers20.slice(0,10))
-            assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',CustomerTestHelper.customers20.slice(10,20))
+            assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers.slice(0,10))
+            assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',customers.slice(10,20))
 
-            assertCustomersWereWrittenToFile(mockFileWriter,'customers2.csv',CustomerTestHelper.customers20.slice(20,))
+            assertCustomersWereWrittenToFile(mockFileWriter,'customers2.csv',customers.slice(20,))
 
-            expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(CustomerTestHelper.customers20.length)
+            expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
 
       })
 
