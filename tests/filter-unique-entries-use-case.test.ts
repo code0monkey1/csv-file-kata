@@ -32,13 +32,18 @@ describe("Filter Unique Entries",()=>{
                 sut.writeCustomers(fileName,customers)
 
                 CustomerHelper
-                 .assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerHelper.createCustomers(10))
+                 .assertCustomersWereWrittenToFile(mockFileWriter,fileName,CustomerHelper.createCustomers(2))
                 
-                expect(mockFileWriter.writeLine).toBeCalledTimes(11)
+                expect(mockFileWriter.writeLine).toBeCalledTimes(2)
 
                 expect(mockFileWriter.writeLine)
                 .toHaveBeenCalledWith('customers1.csv', 
-                      FileWriterHelper.formatAsCsvRow(CustomerHelper.createCustomers(11)[10]))
+                      CustomerHelper.createCustomer("1","1"))
+
+                 expect(mockFileWriter.writeLine)
+                .toHaveBeenCalledWith('customers1.csv', 
+                      CustomerHelper.createCustomer("2","1"))
+     
      
   })
 
