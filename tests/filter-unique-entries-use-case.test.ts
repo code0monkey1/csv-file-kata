@@ -50,9 +50,9 @@ describe("Filter Unique Entries",()=>{
 
               // Apply
 
-                sut.writeCustomers(fileName,null!)
+                expect(()=>sut.writeCustomers(fileName,null!)).toThrowError('`customers` is null')
 
-                expect(mockFileWriter.writeLine).toBeCalledTimes(2)
+                expect(mockFileWriter.writeLine).toBeCalledTimes(0)
      
   })
   }
