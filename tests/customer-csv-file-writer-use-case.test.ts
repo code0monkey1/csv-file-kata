@@ -69,9 +69,9 @@ describe('Customer CSV File writer',()=>{
         {
             customers:createCustomers(9)
         }, 
-        // {
-        //     customers:createCustomers(20)
-        // }
+        {
+            customers:createCustomers(20)
+        }
         
     ])("for customer: $customer._name $customer._contactNumber",({customers})=>{
             
