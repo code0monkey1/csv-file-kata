@@ -57,6 +57,7 @@ describe("Filter Unique Entries",()=>{
      test("if there are no duplicates , the fileWriter must write all",()=>{
 
                // Arrange
+               
                 const mockFileWriter:FileWriter=FileWriterHelper.createFileWriter()
         
                 const customerCsvFileWriter = FileWriterHelper.createCsvFileWriter(mockFileWriter)
@@ -65,13 +66,15 @@ describe("Filter Unique Entries",()=>{
                 
                 const fileName = 'customers.csv';
 
-              // Apply
-              sut.writeCustomers(fileName,CustomerHelper.createCustomers(3))
-              
-              // Assert
-              expect(mockFileWriter.writeLine).toBeCalledTimes(3)
-     
-  })
+                // Apply
+
+                sut.writeCustomers(fileName,CustomerHelper.createCustomers(3))
+                
+                // Assert
+
+                expect(mockFileWriter.writeLine).toBeCalledTimes(3)
+      
+    })
   }
 
   
