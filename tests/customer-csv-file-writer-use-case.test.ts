@@ -159,7 +159,9 @@ describe('Customer CSV File writer',()=>{
             //Arrange
             const mockFileWriter:FileWriter=createFileWriter()
             
-            const sut = createCsvFileWriter(mockFileWriter)
+            const customerCsvFileWriter = createCsvFileWriter(mockFileWriter)
+
+            const sut = new BatchedCustomerCsvFileWriter(customerCsvFileWriter)
             
             const fileName = 'customers';
             
