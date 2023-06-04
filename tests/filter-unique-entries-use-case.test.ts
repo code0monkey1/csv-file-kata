@@ -21,8 +21,10 @@ describe("Filter Unique Entries",()=>{
 
                 const customers = [
                   
-                      ...CustomerHelper.createCustomers(11),
-                      ...CustomerHelper.createCustomers(11)
+                      CustomerHelper.createCustomer("1","1"),
+                      CustomerHelper.createCustomer("1","2"),
+                      CustomerHelper.createCustomer("2","1"),
+                      CustomerHelper.createCustomer("2","2"),
                 ]
 
               // Apply
