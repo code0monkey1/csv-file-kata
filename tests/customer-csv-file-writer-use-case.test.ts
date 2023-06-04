@@ -157,35 +157,35 @@ describe('Customer CSV File writer',()=>{
 
       })
 
-        test.skip("If the customers are 17,000  , then the name of the last file will be `customers2.csv`",()=>{
+    //     test.skip("If the customers are 17,000  , then the name of the last file will be `customers2.csv`",()=>{
             
-            const mockFileWriter:FileWriter=createFileWriter()
+    //         const mockFileWriter:FileWriter=createFileWriter()
             
-            const customerCsvFileWriter = createCsvFileWriter(mockFileWriter)
+    //         const customerCsvFileWriter = createCsvFileWriter(mockFileWriter)
 
-            const sut = new BatchedCustomerCsvFileWriter(customerCsvFileWriter,1500)
+    //         const sut = new BatchedCustomerCsvFileWriter(customerCsvFileWriter,1500)
             
-            const fileName = 'customers.csv';
+    //         const fileName = 'customers.csv';
             
-            const customers = createCustomers(1700)
-            const  LAST_INDEX = customers.length-1
+    //         const customers = createCustomers(1700)
+    //         const  LAST_INDEX = customers.length-1
 
-            const lastCustomer = customers[LAST_INDEX]
+    //         const lastCustomer = customers[LAST_INDEX]
             
-            //Act
-            sut.writeCustomers(fileName,customers)
+    //         //Act
+    //         sut.writeCustomers(fileName,customers)
       
-            expect(mockFileWriter.writeLine)
-            .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
+    //         expect(mockFileWriter.writeLine)
+    //         .lastCalledWith('customers1.csv',csvFileWriter.formatAsCsvRow(lastCustomer))
             
-            assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers.slice(0,1500))
-            assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',customers.slice(1500,))
+    //         assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers.slice(0,1500))
+    //         assertCustomersWereWrittenToFile(mockFileWriter,'customers1.csv',customers.slice(1500,))
 
-            // assertCustomersWereWrittenToFile(mockFileWriter,'customers2.csv',customers.slice(20,))
+    //         // assertCustomersWereWrittenToFile(mockFileWriter,'customers2.csv',customers.slice(20,))
 
-            expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
+    //         expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(customers.length)
 
-      })
+    //   })
 
 
       test("If file extension is missing , an error is thrown `File Extension Missing`",()=>{   
@@ -227,8 +227,8 @@ describe('Customer CSV File writer',()=>{
                 sut.writeCustomers(fileName,customers)
                 
                 //Assert
-                // expect(mockFileWriter.writeLine).toHaveBeenLastCalledWith("customers1.csv",csvFileWriter.formatAsCsvRow(customers[batchSize-1]))
-                expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(batchSize)
+                expect(mockFileWriter.writeLine).toHaveBeenLastCalledWith("customers1.csv",csvFileWriter.formatAsCsvRow(customers[customers.length-1]))
+                // expect(mockFileWriter.writeLine).toHaveBeenCalledTimes(batchSize)
         })
 
      })
