@@ -12,6 +12,10 @@ class FilterUniqueEntries{
                
               const uniqueCustomers:Customer[] =[]
 
+              if(customers === null){
+                throw new Error('`persons` is null')
+              }
+
               customers.forEach( customer =>{
                        
                    const csvEntry =  FileWriterHelper.formatAsCsvRow(customer)

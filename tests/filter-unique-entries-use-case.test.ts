@@ -34,7 +34,7 @@ describe("Filter Unique Entries",()=>{
      
   })
 
-   test(" if persons array is null , then FilterUnique entries will throw error : `persons` is null ",()=>{
+   test(" if persons array is null , then FilterUnique entries will throw error : `customers` is null ",()=>{
                  
                // Arrange
               
@@ -48,19 +48,9 @@ describe("Filter Unique Entries",()=>{
                 
                 const fileName = 'customers.csv';
 
-                const customers = [
-                    
-                      CustomerHelper.createCustomer("a","1"),
-                      CustomerHelper.createCustomer('a',"1"),
-                      CustomerHelper.createCustomer("b","2"),
-                      CustomerHelper.createCustomer("a","1"),
-                      CustomerHelper.createCustomer('a',"1"),
-                      CustomerHelper.createCustomer("b","2")
-                ]
-
               // Apply
 
-                sut.writeCustomers(fileName,customers)
+                sut.writeCustomers(fileName,null!)
 
                 expect(mockFileWriter.writeLine).toBeCalledTimes(2)
      
