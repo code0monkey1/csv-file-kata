@@ -6,7 +6,7 @@ import CustomerHelper from "./CustomerHelper"
 import FileWriterHelper from './FileWriterHelper'
 describe("Filter Unique Entries",()=>{
    
-   test("given a files array , only write entries that are not duplicates",()=>{
+   test("given entries of people , only unique entries are considered",()=>{
                  
                // Arrange
               
@@ -21,24 +21,20 @@ describe("Filter Unique Entries",()=>{
                 const fileName = 'customers.csv';
 
                 const customers = [
-                    
-                      CustomerHelper.createCustomer("a","1"),
-                      CustomerHelper.createCustomer('a',"1"),
-                      CustomerHelper.createCustomer("b","2"),
-                      CustomerHelper.createCustomer("a","1"),
-                      CustomerHelper.createCustomer('a',"1"),
-                      CustomerHelper.createCustomer("b","2")
+                  
+                      ...CustomerHelper.createCustomers(10),
+                      ...CustomerHelper.createCustomers(10)
                 ]
 
               // Apply
 
                 sut.writeCustomers(fileName,customers)
 
-                expect(mockFileWriter.writeLine).toBeCalledTimes(2)
+                expect(mockFileWriter.writeLine).toBeCalledTimes(10)
      
   })
 
-   test("given a files array , only write entries that are not duplicates",()=>{
+   test("given an files array , only write entries that are not duplicates",()=>{
                  
                // Arrange
               
