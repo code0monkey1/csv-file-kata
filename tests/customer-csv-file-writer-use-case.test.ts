@@ -129,7 +129,7 @@ describe('Customer CSV File writer',()=>{
             
             const fileName = 'customers.csv';
             
-            const customers = createCustomers(20)
+            const customers = createCustomers(26)
             const  LAST_INDEX = customers.length-1
 
             const lastCustomer = customers[LAST_INDEX]
