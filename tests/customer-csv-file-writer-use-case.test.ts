@@ -226,7 +226,7 @@ describe('Customer CSV File writer',()=>{
                 //Act
                 sut.writeCustomers(fileName,customers)
                 
-                const fileCount=(customers.length/batchSize)-1
+                const fileCount=Math.ceil(customers.length/batchSize)-1
                 
                 //Assert
                 expect(mockFileWriter.writeLine)
