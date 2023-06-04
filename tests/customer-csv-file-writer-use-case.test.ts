@@ -204,10 +204,34 @@ describe('Customer CSV File writer',()=>{
             expect(()=>sut.writeCustomers(fileName,[customer])).toThrow("File Extension Missing") 
      })
 
-     describe("Works for multiple batch sizes",()=>{
+
+            describe("Works for multiple batch sizes",()=>{
            
+          test.each([
+    
+            { batchSize:10 ,customers:createCustomers(20)},
+            { batchSize:25 ,customers:createCustomers(50)}
+        
+            ])("for the batch size $batchSize and customers $customers.length , we will have 2 files",({batchSize,customers})=>{
+               
+                //Arrange
+                const mockFileWriter:FileWriter=createFileWriter()
+                
+                const customerCsvFileWriter = createCsvFileWriter(mockFileWriter)
+
+                const sut = new BatchedCustomerCsvFileWriter(customerCsvFileWriter,batchSize)
+
+                const fileName="customers.csv"
+
+                //Act
+                sut.writeCustomers(fileName,customers)
+                
+                //Assert
+                expect(mockFileWriter).toHaveBeenLastCalledWith("customers1.csv")
+        })
 
      })
+
 
      })
 
