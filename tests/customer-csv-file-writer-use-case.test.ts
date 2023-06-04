@@ -86,7 +86,6 @@ describe('Customer CSV File writer',()=>{
                 sut.writeCustomers(fileName,customers)
 
             //Assert
-
              assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers)
 
     })
