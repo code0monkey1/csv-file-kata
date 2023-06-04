@@ -69,9 +69,9 @@ describe('Customer CSV File writer',()=>{
         {
             customers:createCustomers(11)
         }, 
-        // {
-        //     customers:createCustomers(20)
-        // }
+        {
+            customers:createCustomers(20)
+        }
         
     ])("for customer: $customer._name $customer._contactNumber",({customers})=>{
             
@@ -85,7 +85,7 @@ describe('Customer CSV File writer',()=>{
             const fileName = 'customers.csv';
 
             //Act
-                sut.writeCustomers(fileName,customers)
+            sut.writeCustomers(fileName,customers)
                 
             //Assert
              assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers)
