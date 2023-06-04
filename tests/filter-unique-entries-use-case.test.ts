@@ -5,7 +5,10 @@ describe("Filter Unique Entries",()=>{
         
         const mySet = new Set(entries)
      
-         expect(mySet).toHaveLength(2)
+         expect(mySet.size).toBe(2)
+
+         expect(mySet).toContain("a")
+         expect(mySet).toContain("b")
 
   })
   }
