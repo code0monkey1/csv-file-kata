@@ -1,4 +1,4 @@
-import BatchedCustomerCsvFileWriter from "../src/BatchedCustomerCsvFileWriter"
+import BatchedCustomerCsvFileWriter from "../src/BatchedCustomerFileWriter"
 import { FileWriter } from "../src/FileWriter"
 import FilterUniqueEntries from "../src/filter-unique-entries-use-case"
 import CustomerHelper from "./CustomerTestHelper"

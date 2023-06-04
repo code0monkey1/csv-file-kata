@@ -1,4 +1,4 @@
-import BatchedCustomerCsvFileWriter from "../src/BatchedCustomerCsvFileWriter";
+import BatchedCustomerCsvFileWriter from "../src/BatchedCustomerFileWriter";
 import { FileWriter } from "../src/FileWriter";
 import csvFileWriter from "../src/utils/csvFileWriter";
 import { assertCustomerWasWrittenToFile, assertCustomersWereWrittenToFile, createCustomer, createCustomers } from "./CustomerTestHelper";
