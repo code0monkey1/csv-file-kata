@@ -10,10 +10,11 @@ describe('Customer CSV File writer',()=>{
           //Arrange
                 const mockFileWriter:FileWriter=createFileWriter()
         
-                const sut = createCsvFileWriter(mockFileWriter)
+                const customerCsvFileWriter = createCsvFileWriter(mockFileWriter)
+
+                const sut = new BatchedCustomerCsvFileWriter(customerCsvFileWriter)
 
                 const fileName = 'customers.csv';
-        
                 //Act
                 expect(()=>sut.writeCustomers(fileName,null!)).toThrowError("argument is null : `customers`")
 
@@ -165,7 +166,7 @@ describe('Customer CSV File writer',()=>{
             const customer = createCustomer("a","1")
             
             //Act / Assert        
-            expect(()=>sut.writeCustomersBatched(fileName,[customer])).toThrow("File Extension Missing") 
+            expect(()=>sut.writeCustomers(fileName,[customer])).toThrow("File Extension Missing") 
      })
 
      })
