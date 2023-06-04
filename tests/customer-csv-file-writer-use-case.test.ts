@@ -85,7 +85,7 @@ describe('Customer CSV File writer',()=>{
             const fileName = 'customers.csv';
 
             //Act
-            sut.writeCustomers(fileName,customers)
+             sut.writeCustomers(fileName,customers)
                 
             //Assert
              assertCustomersWereWrittenToFile(mockFileWriter,fileName,customers)
