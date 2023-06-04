@@ -68,13 +68,11 @@ describe('Customer CSV File writer',()=>{
         test.each([
         {
             customers:createCustomers(9)
-        }, {
+        }, 
+        {
             customers:createCustomers(20)
-        },
+        }
         
-        
-        
-    
     ])("for customer: $customer._name $customer._contactNumber",({customers})=>{
             
             //Arrange
