@@ -4,7 +4,7 @@ class BatchedCustomerCsvFileWriter{
 
        constructor(private readonly customerCsvFileWriter:CustomerCsvFileWriter){}
     
-       public writeCustomersBatched(fileName:string,customers:Customer[]){
+       public writeCustomers(fileName:string,customers:Customer[]){
               
               const extIndex=fileName.lastIndexOf('.')
               
