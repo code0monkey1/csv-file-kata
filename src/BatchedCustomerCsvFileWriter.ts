@@ -5,6 +5,10 @@ class BatchedCustomerCsvFileWriter{
        constructor(private readonly customerCsvFileWriter:CustomerCsvFileWriter){}
     
        public writeCustomers(fileName:string,customers:Customer[]){
+                           
+              if(customers===null)
+                 throw new Error("argument is null : `customers`");
+
               
               const extIndex=fileName.lastIndexOf('.')
               
@@ -18,10 +22,7 @@ class BatchedCustomerCsvFileWriter{
               const BATCH_SIZE = 10
 
               let fileCount = 0
-                      
-              if(customers===null)
-                 throw new Error("argument is null : `customers`");
-
+      
               for (let i = 0 ;i<customers.length;i+=BATCH_SIZE){
 
                      const nextFileName = `${baseFileName}${fileCount || ''}${ext}`;
