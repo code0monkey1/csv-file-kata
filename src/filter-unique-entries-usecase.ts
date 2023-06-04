@@ -18,3 +18,4 @@ class FilterUniqueEntries{
         }
 
        }
+export default FilterUniqueEntries

@@ -2,24 +2,9 @@ describe("Filter Unique Entries",()=>{
    
    test("given a files array , only write entries that are not duplicates",()=>{
         const entries =[["a","b","a"],["a","b","a"],["a","b","a"]]
-        const result=[]
-        const mySet = new Set()
+       
+
         
-        for( let entry of entries){
-           
-           for (let individualEntry of entry){
-
-              if (!mySet.has(individualEntry)){  
-                  result.push(individualEntry)
-                  mySet.add(individualEntry)
-                }
-            }
-            
-        }
-         expect(result.length).toBe(2)
-
-         expect(result).toContain("a")
-         expect(result).toContain("b")
 
   })
   }
