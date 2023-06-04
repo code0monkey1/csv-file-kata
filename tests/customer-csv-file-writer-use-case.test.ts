@@ -227,7 +227,7 @@ describe('Customer CSV File writer',()=>{
                 sut.writeCustomers(fileName,customers)
                 
                 //Assert
-                expect(mockFileWriter).toHaveBeenLastCalledWith("customers1.csv")
+                expect(mockFileWriter.writeLine).toHaveBeenLastCalledWith("customers1.csv")
         })
 
      })
