@@ -79,6 +79,38 @@ describe("Filter Unique Entries",()=>{
                 expect(mockFileWriter.writeLine).toBeCalledTimes(3)
       
     })
+
+        test("the unique contacts should be included but all files should be written to debug files of bach 20",()=>{
+
+               // Arrange
+               
+                const mockFileWriter:FileWriter=FileWriterHelper.createFileWriter()
+        
+                const customerCsvFileWriter = FileWriterHelper.createCsvFileWriter(mockFileWriter)
+                 
+                const batchedFiles = new BatchedCustomerCsvFileWriter(customerCsvFileWriter,20)
+
+                const sut = new FilterUniqueEntries(batchedFiles)
+                
+                const fileName = 'customers.csv';
+
+                // Apply
+
+                batchedFiles.writeCustomers(fileName,[
+                  CustomerHelper.createCustomer("a","1"),
+                  CustomerHelper.createCustomer("a","2"),
+                  CustomerHelper.createCustomer("a","1"),
+                  CustomerHelper.createCustomer("a","1")
+                ]
+                  )
+
+                sut.writeCustomers(fileName,CustomerHelper.createCustomers(3))
+                
+                // Assert
+
+                expect(mockFileWriter.writeLine).toBeCalledTimes(3)
+      
+    })
   }
 
   
